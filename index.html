@@ -32,21 +32,21 @@
           Available for projects
         </div>
         <h1 class="hero-name">Bruno<br>Mattera</h1>
-        <p class="hero-role">Product Designer &amp; UX Lead</p>
+        <p class="hero-role">Product Designer</p>
         <p class="hero-bio">Building AI-powered digital experiences that transform complex systems into intuitive, human-centered products.</p>
-        <div class="hero-stats">
+        <div class="hero-stats" id="heroStats">
           <div class="stat">
-            <span class="stat-num">13<span class="stat-plus">+</span></span>
+            <span class="stat-num"><span class="stat-count" data-target="13">0</span><span class="stat-plus">+</span></span>
             <span class="stat-label">Years of experience</span>
           </div>
           <div class="stat-divider"></div>
           <div class="stat">
-            <span class="stat-num">50<span class="stat-plus">+</span></span>
+            <span class="stat-num"><span class="stat-count" data-target="50">0</span><span class="stat-plus">+</span></span>
             <span class="stat-label">Projects completed</span>
           </div>
           <div class="stat-divider"></div>
           <div class="stat">
-            <span class="stat-num">60<span class="stat-plus">+</span></span>
+            <span class="stat-num"><span class="stat-count" data-target="60">0</span><span class="stat-plus">+</span></span>
             <span class="stat-label">Worldwide clients</span>
           </div>
         </div>
@@ -365,6 +365,32 @@
   </footer>
 
   <script>
+    // Stats count-up
+    (function () {
+      var statsEl = document.getElementById('heroStats');
+      if (!statsEl) return;
+      var fired = false;
+      var so = new IntersectionObserver(function (entries) {
+        if (!entries[0].isIntersecting || fired) return;
+        fired = true;
+        so.disconnect();
+        statsEl.querySelectorAll('.stat-count').forEach(function (el, i) {
+          var target = parseInt(el.dataset.target, 10);
+          setTimeout(function () {
+            var t0 = null;
+            (function tick(now) {
+              if (!t0) t0 = now;
+              var p = Math.min((now - t0) / 1000, 1);
+              var e = 1 - Math.pow(1 - p, 3);
+              el.textContent = Math.round(e * target);
+              if (p < 1) requestAnimationFrame(tick);
+            })(performance.now());
+          }, i * 200);
+        });
+      }, { threshold: 0.6 });
+      so.observe(statsEl);
+    })();
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => {
         if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }

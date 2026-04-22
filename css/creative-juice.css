@@ -1,0 +1,55 @@
+/* =============================================
+   CREATIVE JUICE — Dark Purple theme
+   Primary: #2D1B69  |  Accent: #7B3FE4
+   ============================================= */
+
+/* ── NAV ── */
+.nav {
+  background: rgba(20,10,52,0.90);
+  border-bottom-color: rgba(123,63,228,0.18);
+}
+.nav-logo            { color: #FFFFFF; }
+.nav-back            { color: rgba(255,255,255,0.50); }
+.nav-back:hover      { color: #FFFFFF; }
+
+/* ── HERO ── */
+.project-hero {
+  background: linear-gradient(135deg, #0D0720 0%, #1A0F3C 40%, #2D1B69 100%);
+  border-bottom-color: rgba(123,63,228,0.15);
+}
+.project-hero-year          { color: rgba(255,255,255,0.35); border-color: rgba(255,255,255,0.10); }
+.project-hero-tags span     { color: rgba(255,255,255,0.45); border-color: rgba(255,255,255,0.10); }
+.project-hero-title         { color: #FFFFFF; }
+.project-hero-subtitle      { color: #A78BFA; }
+.project-hero-desc          { color: rgba(255,255,255,0.60); }
+
+/* ── GALLERY ── */
+.project-gallery            { background: #0D0720; }
+
+/* ── PROJECT NAV ── */
+.project-nav-section {
+  border-top-color: rgba(123,63,228,0.18);
+  background: #1A0F3C;
+}
+.project-nav-section .btn-ghost {
+  border-color: rgba(255,255,255,0.14);
+  color: rgba(255,255,255,0.55);
+}
+.project-nav-section .btn-ghost:hover {
+  border-color: rgba(255,255,255,0.30);
+  color: #FFFFFF;
+}
+.project-nav-section .btn-primary {
+  background: #7B3FE4;
+  color: #FFFFFF;
+  border: none;
+}
+.project-nav-section .btn-primary:hover { background: #9461F7; }
+
+/* ── FOOTER ── */
+.footer {
+  background: #0D0720;
+  border-top-color: rgba(255,255,255,0.07);
+}
+.footer-name, .footer-links a { color: rgba(255,255,255,0.35); }
+.footer-links a:hover         { color: rgba(255,255,255,0.70); }

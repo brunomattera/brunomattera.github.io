@@ -1,0 +1,57 @@
+/* =============================================
+   HELIFLITE — Dark Navy/Indigo theme
+   Primary: #1E2154  |  Dark: #14173A
+   ============================================= */
+
+/* ── NAV ── */
+.nav {
+  background: rgba(20,23,58,0.92);
+  border-bottom-color: rgba(255,255,255,0.07);
+}
+.nav-logo        { color: #FFFFFF; }
+.nav-back        { color: rgba(255,255,255,0.48); }
+.nav-back:hover  { color: #FFFFFF; }
+
+/* ── HERO ── */
+.project-hero {
+  background: linear-gradient(135deg, #0D0F26 0%, #1E2154 55%, #252970 100%);
+  border-bottom-color: rgba(255,255,255,0.07);
+}
+.project-hero-year          { color: rgba(255,255,255,0.32); border-color: rgba(255,255,255,0.09); }
+.project-hero-tags span     { color: rgba(255,255,255,0.42); border-color: rgba(255,255,255,0.09); }
+.project-hero-title         { color: #FFFFFF; }
+.project-hero-subtitle      { color: rgba(255,255,255,0.62); }
+.project-hero-desc          { color: rgba(255,255,255,0.52); }
+
+/* ── GALLERY ── */
+.project-gallery            { background: #14173A; }
+
+/* ── PROJECT NAV ── */
+.project-nav-section {
+  border-top-color: rgba(255,255,255,0.07);
+  background: #1E2154;
+}
+.project-nav-section .btn-ghost {
+  border-color: rgba(255,255,255,0.14);
+  color: rgba(255,255,255,0.50);
+}
+.project-nav-section .btn-ghost:hover {
+  border-color: rgba(255,255,255,0.30);
+  color: #FFFFFF;
+}
+.project-nav-section .btn-primary {
+  background: rgba(255,255,255,0.10);
+  color: #FFFFFF;
+  border: 1px solid rgba(255,255,255,0.18);
+}
+.project-nav-section .btn-primary:hover {
+  background: rgba(255,255,255,0.18);
+}
+
+/* ── FOOTER ── */
+.footer {
+  background: #0D0F26;
+  border-top-color: rgba(255,255,255,0.07);
+}
+.footer-name, .footer-links a { color: rgba(255,255,255,0.30); }
+.footer-links a:hover         { color: rgba(255,255,255,0.65); }

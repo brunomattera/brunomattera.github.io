@@ -156,18 +156,25 @@ img { display: block; max-width: 100%; }
 
 .hero-name {
   font-family: var(--font-head);
-  font-size: clamp(56px, 7.5vw, 96px);
+  font-size: clamp(42px, 5.5vw, 72px);
   font-weight: 800;
   letter-spacing: -0.04em;
   line-height: 0.95;
-  margin-bottom: 18px;
+  margin-bottom: 14px;
 }
 
 .hero-role {
-  font-size: 18px;
-  color: var(--text-muted);
-  margin-bottom: 24px;
-  font-weight: 400;
+  display: inline-block;
+  font-family: var(--font-head);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.88);
+  border: 1.5px solid rgba(255, 255, 255, 0.22);
+  padding: 8px 20px;
+  border-radius: 100px;
+  margin-bottom: 28px;
 }
 
 .hero-bio {

@@ -1,0 +1,55 @@
+/* =============================================
+   AHEAD — Green theme
+   Primary: #17A84E  |  Dark: #0F7038
+   ============================================= */
+
+/* ── NAV ── */
+.nav {
+  background: rgba(255,255,255,0.92);
+  border-bottom-color: rgba(0,0,0,0.06);
+}
+.nav-logo        { color: #0F7038; }
+.nav-back        { color: rgba(0,0,0,0.45); }
+.nav-back:hover  { color: #0F7038; }
+
+/* ── HERO ── */
+.project-hero {
+  background: linear-gradient(135deg, #0F7038 0%, #17A84E 50%, #1DC75D 100%);
+  border-bottom-color: rgba(0,0,0,0.06);
+}
+.project-hero-year          { color: rgba(255,255,255,0.60); border-color: rgba(255,255,255,0.25); }
+.project-hero-tags span     { color: rgba(255,255,255,0.70); border-color: rgba(255,255,255,0.25); }
+.project-hero-title         { color: #FFFFFF; }
+.project-hero-subtitle      { color: rgba(255,255,255,0.88); }
+.project-hero-desc          { color: rgba(255,255,255,0.72); }
+
+/* ── GALLERY ── */
+.project-gallery            { background: #FFFFFF; }
+
+/* ── PROJECT NAV ── */
+.project-nav-section {
+  border-top-color: rgba(0,0,0,0.07);
+  background: #F3FBF6;
+}
+.project-nav-section .btn-ghost {
+  border-color: rgba(0,0,0,0.14);
+  color: rgba(0,0,0,0.50);
+}
+.project-nav-section .btn-ghost:hover {
+  border-color: rgba(0,0,0,0.28);
+  color: #000;
+}
+.project-nav-section .btn-primary {
+  background: #17A84E;
+  color: #FFFFFF;
+  border: none;
+}
+.project-nav-section .btn-primary:hover { background: #0F7038; }
+
+/* ── FOOTER ── */
+.footer {
+  background: #FFFFFF;
+  border-top-color: rgba(0,0,0,0.07);
+}
+.footer-name, .footer-links a { color: rgba(0,0,0,0.40); }
+.footer-links a:hover         { color: rgba(0,0,0,0.70); }
