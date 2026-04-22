@@ -3,11 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Bruno Mattera — Product Designer & UX Lead specializing in AI-powered digital experiences.">
-  <title>Bruno Mattera — Product Designer & UX Lead</title>
+  <meta name="description" content="Bruno Mattera, Product Designer specializing in AI-powered digital experiences.">
+  <title>Bruno Mattera - Product Designer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,400&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -232,7 +233,7 @@
       <div class="exp-list">
 
         <div class="exp-item fade-in">
-          <div class="exp-left"><span class="exp-period">Jul 2024 — Present</span></div>
+          <div class="exp-left"><span class="exp-period">Jul 2024 - Present</span></div>
           <div class="exp-right">
             <div class="exp-header">
               <h3 class="exp-role">Design Lead</h3>
@@ -243,7 +244,7 @@
         </div>
 
         <div class="exp-item fade-in">
-          <div class="exp-left"><span class="exp-period">Apr 2023 — Jun 2024</span></div>
+          <div class="exp-left"><span class="exp-period">Apr 2023 - Jun 2024</span></div>
           <div class="exp-right">
             <div class="exp-header">
               <h3 class="exp-role">Senior Product Designer</h3>
@@ -254,7 +255,7 @@
         </div>
 
         <div class="exp-item fade-in">
-          <div class="exp-left"><span class="exp-period">Sep 2021 — Apr 2023</span></div>
+          <div class="exp-left"><span class="exp-period">Sep 2021 - Apr 2023</span></div>
           <div class="exp-right">
             <div class="exp-header">
               <h3 class="exp-role">Senior Product Designer</h3>
@@ -265,7 +266,7 @@
         </div>
 
         <div class="exp-item fade-in exp-extra">
-          <div class="exp-left"><span class="exp-period">Nov 2019 — Sep 2021</span></div>
+          <div class="exp-left"><span class="exp-period">Nov 2019 - Sep 2021</span></div>
           <div class="exp-right">
             <div class="exp-header">
               <h3 class="exp-role">UX/UI Designer</h3>
@@ -276,7 +277,7 @@
         </div>
 
         <div class="exp-item fade-in exp-extra">
-          <div class="exp-left"><span class="exp-period">Sep 2019 — Nov 2019</span></div>
+          <div class="exp-left"><span class="exp-period">Sep 2019 - Nov 2019</span></div>
           <div class="exp-right">
             <div class="exp-header">
               <h3 class="exp-role">Multimedia Designer</h3>
@@ -287,7 +288,7 @@
         </div>
 
         <div class="exp-item fade-in exp-extra">
-          <div class="exp-left"><span class="exp-period">Jul 2008 — Sep 2019</span></div>
+          <div class="exp-left"><span class="exp-period">Jul 2008 - Sep 2019</span></div>
           <div class="exp-right">
             <div class="exp-header">
               <h3 class="exp-role">UX/UI Designer</h3>
@@ -298,7 +299,7 @@
         </div>
 
         <div class="exp-item fade-in exp-extra">
-          <div class="exp-left"><span class="exp-period">2013 — Jun 2018</span></div>
+          <div class="exp-left"><span class="exp-period">2013 - Jun 2018</span></div>
           <div class="exp-right">
             <div class="exp-header">
               <h3 class="exp-role">UI Designer / Art Director</h3>
@@ -309,7 +310,7 @@
         </div>
 
         <div class="exp-item fade-in exp-extra">
-          <div class="exp-left"><span class="exp-period">Jan 2014 — Apr 2014</span></div>
+          <div class="exp-left"><span class="exp-period">Jan 2014 - Apr 2014</span></div>
           <div class="exp-right">
             <div class="exp-header">
               <h3 class="exp-role">Web UI Designer</h3>
@@ -423,6 +424,33 @@
         btn.disabled = false;
       }
     });
+
+    // Hero image — 3D tilt on hover
+    (function () {
+      var card = document.querySelector('.hero-image');
+      if (!card) return;
+      var MAX = 10;
+
+      card.addEventListener('mousemove', function (e) {
+        var r  = card.getBoundingClientRect();
+        var x  = e.clientX - r.left;
+        var y  = e.clientY - r.top;
+        var rx = -((y - r.height / 2) / (r.height / 2)) * MAX;
+        var ry =  ((x - r.width  / 2) / (r.width  / 2)) * MAX;
+        card.style.transition = 'transform 0.08s ease';
+        card.style.transform  =
+          'perspective(900px) rotateX(' + rx + 'deg) rotateY(' + ry + 'deg) scale3d(1.02,1.02,1.02)';
+        card.style.setProperty('--sheen-x', (x / r.width  * 100) + '%');
+        card.style.setProperty('--sheen-y', (y / r.height * 100) + '%');
+        card.classList.add('is-tilting');
+      });
+
+      card.addEventListener('mouseleave', function () {
+        card.style.transition = 'transform 0.7s cubic-bezier(0.23,1,0.32,1)';
+        card.style.transform  = 'perspective(900px) rotateX(0deg) rotateY(0deg) scale3d(1,1,1)';
+        card.classList.remove('is-tilting');
+      });
+    })();
 
     // Experience "View more" toggle
     const expToggle = document.getElementById('expToggle');
