@@ -161,6 +161,30 @@ img { display: block; max-width: 100%; }
   letter-spacing: -0.04em;
   line-height: 0.95;
   margin-bottom: 14px;
+  /* Subtle premium shimmer */
+  background: linear-gradient(
+    110deg,
+    #d4d4d4 0%,
+    #f2f2f2 22%,
+    #ffffff 30%,
+    #ffffff 34%,
+    #e2e2e2 50%,
+    #f8f8f8 62%,
+    #ffffff 70%,
+    #d8d8d8 85%,
+    #f0f0f0 100%
+  );
+  background-size: 280% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: name-shine 9s ease-in-out infinite;
+  filter: drop-shadow(0 0 48px rgba(194, 255, 79, 0.07));
+}
+
+@keyframes name-shine {
+  0%        { background-position: 150% 50%; }
+  35%, 100% { background-position: -100% 50%; }
 }
 
 .hero-role {
@@ -170,11 +194,22 @@ img { display: block; max-width: 100%; }
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.88);
-  border: 1.5px solid rgba(255, 255, 255, 0.22);
+  color: rgba(255, 255, 255, 0.92);
   padding: 8px 20px;
   border-radius: 100px;
   margin-bottom: 28px;
+  /* Holographic animated border */
+  border: 1.5px solid transparent;
+  background:
+    linear-gradient(#0A0A0A, #0A0A0A) padding-box,
+    linear-gradient(90deg, #C2FF4F, #E8FF9A, #86E82A, #DEFF7A, #C2FF4F) border-box;
+  background-size: auto, 300% 100%;
+  animation: holo-border 4s linear infinite;
+}
+
+@keyframes holo-border {
+  0%   { background-position: auto, 0% 50%; }
+  100% { background-position: auto, 300% 50%; }
 }
 
 .hero-bio {
@@ -269,6 +304,29 @@ img { display: block; max-width: 100%; }
    ============================================= */
 .hero-image {
   position: relative;
+  will-change: transform;
+  transform-style: preserve-3d;
+  cursor: default;
+}
+
+.hero-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  border-radius: var(--radius-lg);
+  background: radial-gradient(
+    circle at var(--sheen-x, 50%) var(--sheen-y, 50%),
+    rgba(255, 255, 255, 0.11) 0%,
+    transparent 62%
+  );
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.hero-image.is-tilting::after {
+  opacity: 1;
 }
 
 .hero-image::before {
