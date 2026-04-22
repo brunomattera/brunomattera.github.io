@@ -631,8 +631,9 @@
 
 /* ── RESPONSIVE ── */
 @media (max-width: 960px) {
-  .flex-hero-grid         { grid-template-columns: 1fr; padding-bottom: 0; }
-  .flex-hero-grid > div:first-child { padding-bottom: 32px; }
+  .flex-hero-grid         { grid-template-columns: 1fr; padding-bottom: 0; gap: 0; }
+  .flex-hero-grid > div:first-child { padding-bottom: 0; }
+  .flex-hero-img-wrap     { align-items: center; }
   .flex-hero-img          { max-width: 100%; }
 
   .cs-cards-row           { grid-template-columns: 1fr; }

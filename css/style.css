@@ -963,4 +963,14 @@ section { padding: 100px 0; }
     gap: 16px;
     text-align: center;
   }
+
+  .project-hero-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .project-hero-tags {
+    flex-wrap: wrap;
+  }
 }
