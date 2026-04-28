@@ -1,0 +1,55 @@
+/* =============================================
+   KNOBS RESEARCH — Teal theme
+   Primary: #4B8F96  |  Dark: #3A7178
+   ============================================= */
+
+/* ── NAV ── */
+.nav {
+  background: rgba(255,255,255,0.92);
+  border-bottom-color: rgba(0,0,0,0.06);
+}
+.nav-logo        { color: #3A7178; }
+.nav-back        { color: rgba(0,0,0,0.45); }
+.nav-back:hover  { color: #3A7178; }
+
+/* ── HERO ── */
+.project-hero {
+  background: linear-gradient(135deg, #2E5D63 0%, #4B8F96 55%, #5DA5AC 100%);
+  border-bottom-color: rgba(0,0,0,0.06);
+}
+.project-hero-year          { color: rgba(255,255,255,0.55); border-color: rgba(255,255,255,0.22); }
+.project-hero-tags span     { color: rgba(255,255,255,0.65); border-color: rgba(255,255,255,0.22); }
+.project-hero-title         { color: #FFFFFF; }
+.project-hero-subtitle      { color: rgba(255,255,255,0.88); }
+.project-hero-desc          { color: rgba(255,255,255,0.72); }
+
+/* ── GALLERY ── */
+.project-gallery            { background: #F2F7F8; }
+
+/* ── PROJECT NAV ── */
+.project-nav-section {
+  border-top-color: rgba(0,0,0,0.07);
+  background: #EAF2F3;
+}
+.project-nav-section .btn-ghost {
+  border-color: rgba(0,0,0,0.13);
+  color: rgba(0,0,0,0.48);
+}
+.project-nav-section .btn-ghost:hover {
+  border-color: rgba(0,0,0,0.26);
+  color: #000;
+}
+.project-nav-section .btn-primary {
+  background: #4B8F96;
+  color: #FFFFFF;
+  border: none;
+}
+.project-nav-section .btn-primary:hover { background: #3A7178; }
+
+/* ── FOOTER ── */
+.footer {
+  background: #EAF2F3;
+  border-top-color: rgba(0,0,0,0.06);
+}
+.footer-name, .footer-links a { color: rgba(0,0,0,0.38); }
+.footer-links a:hover         { color: rgba(0,0,0,0.65); }
