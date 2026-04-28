@@ -399,15 +399,16 @@
   </footer>
 
   <script>
-    // ── Hero text parallax + fade ──
+    // ── Hero text parallax + fade (desktop only) ──
     (function () {
       var heroText = document.querySelector('.hero-text');
       if (!heroText || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      if (window.innerWidth < 768) return;
       window.addEventListener('scroll', function () {
         var y = window.scrollY;
         var vh = window.innerHeight;
         heroText.style.transform = 'translateY(' + (y * 0.14) + 'px)';
-        heroText.style.opacity   = Math.max(1 - (y / (vh * 0.7)), 0);
+        heroText.style.opacity   = Math.max(1 - (y / (vh * 1.1)), 0);
       }, { passive: true });
     })();
 
