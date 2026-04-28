@@ -10,6 +10,19 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,400&display=swap" rel="stylesheet">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Scroll progress bar */
+    #scroll-progress {
+      position: fixed;
+      top: 0; left: 0;
+      height: 2px;
+      width: 0%;
+      background: var(--accent);
+      z-index: 9999;
+      transition: width 0.08s linear;
+      pointer-events: none;
+    }
+  </style>
 </head>
 <body>
 
@@ -399,6 +412,36 @@
   </footer>
 
   <script>
+    // ── Scroll progress bar ──
+    (function () {
+      var bar = document.createElement('div');
+      bar.id = 'scroll-progress';
+      document.body.appendChild(bar);
+      window.addEventListener('scroll', function () {
+        var pct = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
+        bar.style.width = (Math.min(pct, 1) * 100) + '%';
+      }, { passive: true });
+    })();
+
+    // ── Hero text parallax + fade ──
+    (function () {
+      var heroText = document.querySelector('.hero-text');
+      if (!heroText || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      window.addEventListener('scroll', function () {
+        var y = window.scrollY;
+        var vh = window.innerHeight;
+        heroText.style.transform = 'translateY(' + (y * 0.14) + 'px)';
+        heroText.style.opacity   = Math.max(1 - (y / (vh * 0.7)), 0);
+      }, { passive: true });
+    })();
+
+    // ── Staggered project card entrance ──
+    (function () {
+      document.querySelectorAll('.projects-grid .project-card').forEach(function (card, i) {
+        card.style.transitionDelay = Math.min(i * 80, 400) + 'ms';
+      });
+    })();
+
     // Stats count-up
     (function () {
       var statsEl = document.getElementById('heroStats');
