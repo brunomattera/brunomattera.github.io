@@ -1,0 +1,305 @@
+/* ============================================================
+   PEDIDOSYA — Email Marketing Case
+   pedidosya.css
+   ============================================================ */
+
+:root {
+  --py-red:       #FA1932;
+  --py-red-dark:  #d4112a;
+  --py-red-faint: rgba(250, 25, 50, 0.09);
+}
+
+/* ── Page overrides (light theme) ── */
+body {
+  background: #fff;
+  color: #111;
+}
+
+.nav {
+  background: rgba(255,255,255,0.92);
+  border-bottom-color: rgba(0,0,0,0.08);
+}
+.nav-logo { color: var(--py-red); }
+.nav-back  { color: rgba(0,0,0,0.45); }
+.nav-back:hover { color: var(--py-red); }
+
+.project-nav-section { border-top-color: rgba(0,0,0,0.08); }
+.btn-ghost { border-color: rgba(0,0,0,0.15); color: #111; }
+.btn-ghost:hover { border-color: rgba(0,0,0,0.35); color: #111; }
+
+.footer { border-top-color: rgba(0,0,0,0.08); }
+.footer-name { color: rgba(0,0,0,0.35); }
+.footer-links a { color: rgba(0,0,0,0.45); }
+.footer-links a:hover { color: #111; }
+
+/* ── Hero — red background ── */
+.gd-hero {
+  background: var(--py-red);
+  padding: calc(var(--nav-h) + 60px) 0 52px;
+}
+
+.gd-hero .project-hero-meta {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+/* Year chip */
+.gd-hero .project-hero-year {
+  color: rgba(255,255,255,0.7);
+  font-size: 13px;
+}
+
+/* Tag pills */
+.gd-hero .project-hero-tags span {
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.3);
+}
+
+.gd-hero-title {
+  font-family: var(--font-head);
+  font-size: clamp(48px, 7vw, 88px);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: #fff;
+  margin: 0 0 20px;
+}
+
+.gd-hero-sub {
+  font-size: 18px;
+  color: rgba(255,255,255,0.8);
+  max-width: 580px;
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ── Section ── */
+.gd-section { padding: 48px 0 80px; }
+
+/* ════════════════════════════════════════
+   EMAIL CLIENT MOCKUP
+   ════════════════════════════════════════ */
+
+.gd-client {
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(0,0,0,0.1);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.18);
+}
+
+/* Title bar */
+.gd-client-titlebar {
+  background: var(--py-red);
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid rgba(0,0,0,0.12);
+  flex-shrink: 0;
+}
+
+.gd-client-dots { display: flex; gap: 6px; }
+
+.gd-client-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.35);
+}
+
+.gd-client-title-text {
+  font-size: 12px;
+  color: rgba(255,255,255,0.75);
+  flex: 1;
+  text-align: center;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+}
+
+/* Two-pane body */
+.gd-client-body {
+  display: flex;
+  height: 680px;
+}
+
+/* ── Sidebar ── */
+.gd-client-sidebar {
+  width: 210px;
+  flex-shrink: 0;
+  background: #fff;
+  border-right: 1px solid #e8e8e8;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0,0,0,0.1) transparent;
+}
+
+.gd-client-sidebar::-webkit-scrollbar { width: 3px; }
+.gd-client-sidebar::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.12); border-radius: 2px; }
+
+.gd-sidebar-search {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin: 10px 8px 6px;
+  background: #f2f2f2;
+  border-radius: 6px;
+  padding: 6px 10px;
+  color: #bbb;
+  font-size: 11px;
+  font-family: 'DM Sans', sans-serif;
+  pointer-events: none;
+  user-select: none;
+}
+
+.gd-folder-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--py-red);
+  padding: 12px 14px 4px;
+  display: block;
+}
+
+.gd-inbox-item {
+  display: flex;
+  align-items: flex-start;
+  padding: 8px 10px;
+  margin: 1px 6px;
+  width: calc(100% - 12px);
+  text-align: left;
+  background: none;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  cursor: pointer;
+  color: #444;
+  transition: background 0.14s, color 0.14s;
+  gap: 0;
+}
+
+.gd-inbox-item:hover { background: var(--py-red-faint); }
+
+.gd-inbox-item.is-active {
+  background: var(--py-red);
+  border-color: var(--py-red-dark);
+  color: #fff;
+}
+
+.gd-inbox-info { flex: 1; min-width: 0; }
+
+.gd-inbox-name {
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  line-height: 1.4;
+}
+
+.gd-inbox-region {
+  font-size: 10px;
+  color: #999;
+  display: block;
+  margin-top: 1px;
+}
+
+.gd-inbox-item.is-active .gd-inbox-region {
+  color: rgba(255,255,255,0.65);
+}
+
+/* ── Preview pane ── */
+.gd-client-preview {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: #fff;
+  min-width: 0;
+}
+
+/* Sticky meta header */
+.gd-preview-header {
+  background: #fff;
+  border-bottom: 1px solid #e8e8e8;
+  padding: 11px 18px;
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  flex-shrink: 0;
+  z-index: 2;
+}
+
+.gd-preview-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 700;
+  color: #fff;
+  margin-top: 2px;
+  background: var(--py-red);
+}
+
+.gd-preview-header-info { flex: 1; min-width: 0; }
+
+.gd-preview-from {
+  font-size: 11px;
+  color: #aaa;
+  display: block;
+  margin-bottom: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.gd-preview-subject {
+  font-size: 13px;
+  font-weight: 600;
+  color: #111;
+  line-height: 1.35;
+}
+
+.gd-preview-date {
+  font-size: 10px;
+  color: #bbb;
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+/* iframe */
+#previewFrame {
+  flex: 1;
+  border: none;
+  width: 100%;
+  background: #fff;
+  min-height: 0;
+  transition: opacity 0.18s ease;
+}
+
+#previewFrame.is-loading { opacity: 0; }
+
+/* ── Responsive ── */
+@media (max-width: 720px) {
+  .gd-client-body { flex-direction: column; height: auto; }
+  .gd-client-sidebar {
+    width: 100%;
+    max-height: 160px;
+    border-right: none;
+    border-bottom: 1px solid #e8e8e8;
+  }
+  #previewFrame { height: 480px; }
+}
+
+@media (max-width: 480px) {
+  .gd-hero { padding: 100px 0 52px; }
+  .gd-section { padding: 56px 0; }
+}
