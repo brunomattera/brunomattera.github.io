@@ -408,7 +408,7 @@ section { padding: 100px 0; }
 .project-img {
   position: relative;
   overflow: hidden;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 1616 / 1264;
   background: var(--surface-2);
 }
 
@@ -900,7 +900,7 @@ section { padding: 100px 0; }
 .figma-embed {
   width: 100%;
   background: var(--surface);
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 1616 / 1264;
 }
 
 .figma-embed iframe {
