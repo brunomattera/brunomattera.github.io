@@ -10,19 +10,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,400&display=swap" rel="stylesheet">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="stylesheet" href="css/style.css">
-  <style>
-    /* Scroll progress bar */
-    #scroll-progress {
-      position: fixed;
-      top: 0; left: 0;
-      height: 2px;
-      width: 0%;
-      background: var(--accent);
-      z-index: 9999;
-      transition: width 0.08s linear;
-      pointer-events: none;
-    }
-  </style>
 </head>
 <body>
 
@@ -69,106 +56,6 @@
       <div class="hero-image">
         <img src="images/bruno.png" alt="Bruno Mattera">
       </div>
-    </div>
-  </section>
-
-  <!-- TOOLS MARQUEE -->
-  <section class="tools-section">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-label">Tools &amp; Stack</span>
-        <h2 class="section-title">How I Work</h2>
-      </div>
-    </div>
-    <div class="marquee-rows">
-
-      <!-- ROW 1 → (left to right) — 3 identical copies for seamless -33.333% loop -->
-      <div class="marquee-wrapper">
-        <div class="marquee-track">
-          <!-- Copy 1 -->
-          <a href="https://figma.com" target="_blank" rel="noopener" class="tool-chip"><img src="images/icons/figma.svg" alt="" onerror="this.style.display='none'"><span>Figma</span></a>
-          <a href="https://framer.com" target="_blank" rel="noopener" class="tool-chip"><img src="images/icons/framer.svg" alt="" onerror="this.style.display='none'"><span>Framer</span></a>
-          <a href="https://claude.ai" target="_blank" rel="noopener" class="tool-chip"><img src="images/icons/claude.svg" alt="" onerror="this.style.display='none'"><span>Claude AI</span></a>
-          <a href="https://chatgpt.com" target="_blank" rel="noopener" class="tool-chip"><img src="images/icons/openai.svg" alt="" onerror="this.style.display='none'"><span>ChatGPT</span></a>
-          <a href="https://adobe.com/products/photoshop.html" target="_blank" rel="noopener" class="tool-chip"><img src="images/icons/adobephotoshop.svg" alt="" onerror="this.style.display='none'"><span>Photoshop</span></a>
-          <a href="https://adobe.com/products/illustrator.html" target="_blank" rel="noopener" class="tool-chip"><img src="images/icons/adobeillustrator.svg" alt="" onerror="this.style.display='none'"><span>Illustrator</span></a>
-          <a href="https://microsoft.com/en-us/microsoft-teams" target="_blank" rel="noopener" class="tool-chip"><img src="images/icons/microsoftteams.svg" alt="" onerror="this.style.display='none'"><span>Microsoft Teams</span></a>
-          <a href="https://github.com" target="_blank" rel="noopener" class="tool-chip"><img src="images/icons/github.svg" alt="" onerror="this.style.display='none'"><span>GitHub</span></a>
-          <a href="https://vercel.com" target="_blank" rel="noopener" class="tool-chip"><img src="images/icons/vercel.svg" alt="" onerror="this.style.display='none'"><span>Vercel</span></a>
-          <a href="https://gemini.google.com" target="_blank" rel="noopener" class="tool-chip"><img src="images/icons/googlegemini.svg" alt="" onerror="this.style.display='none'"><span>Gemini</span></a>
-          <a href="https://canva.com" target="_blank" rel="noopener" class="tool-chip"><img src="images/icons/canva.svg" alt="" onerror="this.style.display='none'"><span>Canva</span></a>
-          <!-- Copy 2 -->
-          <a href="https://figma.com" target="_blank" rel="noopener" class="tool-chip"><img src="images/icons/figma.svg" alt="" onerror="this.style.display='none'"><span>Figma</span></a>
-          <a href="https://framer.com" target="_blank" rel="noopener" class="tool-chip"><img src="images/icons/framer.svg" alt="" onerror="this.style.display='none'"><span>Framer</span></a>
-          <a href="https://claude.ai" target="_blank" rel="noopener" class="tool-chip"><img src="images/icons/claude.svg" alt="" onerror="this.style.display='none'"><span>Claude AI</span></a>
-          <a href="https://chatgpt.com" target="_blank" rel="noopener" class="tool-chip"><img src="images/icons/openai.svg" alt="" onerror="this.style.display='none'"><span>ChatGPT</span></a>
-          <a href="https://adobe.com/products/photoshop.html" target="_blank" rel="noopener" class="tool-chip"><img src="images/icons/adobephotoshop.svg" alt="" onerror="this.style.display='none'"><span>Photoshop</span></a>
-          <a href="https://adobe.com/products/illustrator.html" target="_blank" rel="noopener" class="tool-chip"><img src="images/icons/adobeillustrator.svg" alt="" onerror="this.style.display='none'"><span>Illustrator</span></a>
-          <a href="https://microsoft.com/en-us/microsoft-teams" target="_blank" rel="noopener" class="tool-chip"><img src="images/icons/microsoftteams.svg" alt="" onerror="this.style.display='none'"><span>Microsoft Teams</span></a>
-          <a href="https://github.com" target="_blank" rel="noopener" class="tool-chip"><img src="images/icons/github.svg" alt="" onerror="this.style.display='none'"><span>GitHub</span></a>
-          <a href="https://vercel.com" target="_blank" rel="noopener" class="tool-chip"><img src="images/icons/vercel.svg" alt="" onerror="this.style.display='none'"><span>Vercel</span></a>
-          <a href="https://gemini.google.com" target="_blank" rel="noopener" class="tool-chip"><img src="images/icons/googlegemini.svg" alt="" onerror="this.style.display='none'"><span>Gemini</span></a>
-          <a href="https://canva.com" target="_blank" rel="noopener" class="tool-chip"><img src="images/icons/canva.svg" alt="" onerror="this.style.display='none'"><span>Canva</span></a>
-          <!-- Copy 3 -->
-          <a href="https://figma.com" target="_blank" rel="noopener" class="tool-chip"><img src="images/icons/figma.svg" alt="" onerror="this.style.display='none'"><span>Figma</span></a>
-          <a href="https://framer.com" target="_blank" rel="noopener" class="tool-chip"><img src="images/icons/framer.svg" alt="" onerror="this.style.display='none'"><span>Framer</span></a>
-          <a href="https://claude.ai" target="_blank" rel="noopener" class="tool-chip"><img src="images/icons/claude.svg" alt="" onerror="this.style.display='none'"><span>Claude AI</span></a>
-          <a href="https://chatgpt.com" target="_blank" rel="noopener" class="tool-chip"><img src="images/icons/openai.svg" alt="" onerror="this.style.display='none'"><span>ChatGPT</span></a>
-          <a href="https://adobe.com/products/photoshop.html" target="_blank" rel="noopener" class="tool-chip"><img src="images/icons/adobephotoshop.svg" alt="" onerror="this.style.display='none'"><span>Photoshop</span></a>
-          <a href="https://adobe.com/products/illustrator.html" target="_blank" rel="noopener" class="tool-chip"><img src="images/icons/adobeillustrator.svg" alt="" onerror="this.style.display='none'"><span>Illustrator</span></a>
-          <a href="https://microsoft.com/en-us/microsoft-teams" target="_blank" rel="noopener" class="tool-chip"><img src="images/icons/microsoftteams.svg" alt="" onerror="this.style.display='none'"><span>Microsoft Teams</span></a>
-          <a href="https://github.com" target="_blank" rel="noopener" class="tool-chip"><img src="images/icons/github.svg" alt="" onerror="this.style.display='none'"><span>GitHub</span></a>
-          <a href="https://vercel.com" target="_blank" rel="noopener" class="tool-chip"><img src="images/icons/vercel.svg" alt="" onerror="this.style.display='none'"><span>Vercel</span></a>
-          <a href="https://gemini.google.com" target="_blank" rel="noopener" class="tool-chip"><img src="images/icons/googlegemini.svg" alt="" onerror="this.style.display='none'"><span>Gemini</span></a>
-          <a href="https://canva.com" target="_blank" rel="noopener" class="tool-chip"><img src="images/icons/canva.svg" alt="" onerror="this.style.display='none'"><span>Canva</span></a>
-        </div>
-      </div>
-
-      <!-- ROW 2 ← (right to left) — 3 identical copies -->
-      <div class="marquee-wrapper">
-        <div class="marquee-track marquee-rtl">
-          <!-- Copy 1 -->
-          <a href="https://adobe.com/products/aftereffects.html" target="_blank" rel="noopener" class="tool-chip"><img src="images/icons/adobeaftereffects.svg" alt="" onerror="this.style.display='none'"><span>After Effects</span></a>
-          <a href="https://adobe.com/products/premiere.html" target="_blank" rel="noopener" class="tool-chip"><img src="images/icons/adobepremierepro.svg" alt="" onerror="this.style.display='none'"><span>Premiere Pro</span></a>
-          <a href="https://notion.so" target="_blank" rel="noopener" class="tool-chip"><img src="images/icons/notion.svg" alt="" onerror="this.style.display='none'"><span>Notion</span></a>
-          <a href="https://lovable.dev" target="_blank" rel="noopener" class="tool-chip"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path clip-rule="evenodd" fill-rule="evenodd" d="M7.082 0c3.91 0 7.081 3.179 7.081 7.1v2.7h2.357c3.91 0 7.082 3.178 7.082 7.1 0 3.923-3.17 7.1-7.082 7.1H0V7.1C0 3.18 3.17 0 7.082 0z"/></svg><span>Lovable AI</span></a>
-          <a href="https://slack.com" target="_blank" rel="noopener" class="tool-chip"><img src="images/icons/slack.svg" alt="" onerror="this.style.display='none'"><span>Slack</span></a>
-          <a href="https://miro.com" target="_blank" rel="noopener" class="tool-chip"><img src="images/icons/miro.svg" alt="" onerror="this.style.display='none'"><span>Miro</span></a>
-          <a href="https://v0.dev" target="_blank" rel="noopener" class="tool-chip"><img src="images/icons/v0.svg" alt="" onerror="this.style.display='none'"><span>v0</span></a>
-          <a href="https://replit.com" target="_blank" rel="noopener" class="tool-chip"><img src="images/icons/replit.svg" alt="" onerror="this.style.display='none'"><span>Replit</span></a>
-          <a href="https://stitch.withgoogle.com/" target="_blank" rel="noopener" class="tool-chip"><img src="images/icons/stitch.svg" alt="" onerror="this.style.display='none'"><span>Stitch</span></a>
-          <a href="https://maze.co" target="_blank" rel="noopener" class="tool-chip"><img src="images/icons/maze.svg" alt="" onerror="this.style.display='none'"><span>Maze</span></a>
-          <a href="https://openai.com/codex" target="_blank" rel="noopener" class="tool-chip"><img src="images/icons/openai.svg" alt="" onerror="this.style.display='none'"><span>Codex</span></a>
-          <a href="https://attentioninsight.com" target="_blank" rel="noopener" class="tool-chip"><img src="images/icons/attentioninsight.svg" alt="" onerror="this.style.display='none'"><span>Attention Insight</span></a>
-          <!-- Copy 2 -->
-          <a href="https://adobe.com/products/aftereffects.html" target="_blank" rel="noopener" class="tool-chip"><img src="images/icons/adobeaftereffects.svg" alt="" onerror="this.style.display='none'"><span>After Effects</span></a>
-          <a href="https://adobe.com/products/premiere.html" target="_blank" rel="noopener" class="tool-chip"><img src="images/icons/adobepremierepro.svg" alt="" onerror="this.style.display='none'"><span>Premiere Pro</span></a>
-          <a href="https://notion.so" target="_blank" rel="noopener" class="tool-chip"><img src="images/icons/notion.svg" alt="" onerror="this.style.display='none'"><span>Notion</span></a>
-          <a href="https://lovable.dev" target="_blank" rel="noopener" class="tool-chip"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path clip-rule="evenodd" fill-rule="evenodd" d="M7.082 0c3.91 0 7.081 3.179 7.081 7.1v2.7h2.357c3.91 0 7.082 3.178 7.082 7.1 0 3.923-3.17 7.1-7.082 7.1H0V7.1C0 3.18 3.17 0 7.082 0z"/></svg><span>Lovable AI</span></a>
-          <a href="https://slack.com" target="_blank" rel="noopener" class="tool-chip"><img src="images/icons/slack.svg" alt="" onerror="this.style.display='none'"><span>Slack</span></a>
-          <a href="https://miro.com" target="_blank" rel="noopener" class="tool-chip"><img src="images/icons/miro.svg" alt="" onerror="this.style.display='none'"><span>Miro</span></a>
-          <a href="https://v0.dev" target="_blank" rel="noopener" class="tool-chip"><img src="images/icons/v0.svg" alt="" onerror="this.style.display='none'"><span>v0</span></a>
-          <a href="https://replit.com" target="_blank" rel="noopener" class="tool-chip"><img src="images/icons/replit.svg" alt="" onerror="this.style.display='none'"><span>Replit</span></a>
-          <a href="https://stitch.withgoogle.com/" target="_blank" rel="noopener" class="tool-chip"><img src="images/icons/stitch.svg" alt="" onerror="this.style.display='none'"><span>Stitch</span></a>
-          <a href="https://maze.co" target="_blank" rel="noopener" class="tool-chip"><img src="images/icons/maze.svg" alt="" onerror="this.style.display='none'"><span>Maze</span></a>
-          <a href="https://openai.com/codex" target="_blank" rel="noopener" class="tool-chip"><img src="images/icons/openai.svg" alt="" onerror="this.style.display='none'"><span>Codex</span></a>
-          <a href="https://attentioninsight.com" target="_blank" rel="noopener" class="tool-chip"><img src="images/icons/attentioninsight.svg" alt="" onerror="this.style.display='none'"><span>Attention Insight</span></a>
-          <!-- Copy 3 -->
-          <a href="https://adobe.com/products/aftereffects.html" target="_blank" rel="noopener" class="tool-chip"><img src="images/icons/adobeaftereffects.svg" alt="" onerror="this.style.display='none'"><span>After Effects</span></a>
-          <a href="https://adobe.com/products/premiere.html" target="_blank" rel="noopener" class="tool-chip"><img src="images/icons/adobepremierepro.svg" alt="" onerror="this.style.display='none'"><span>Premiere Pro</span></a>
-          <a href="https://notion.so" target="_blank" rel="noopener" class="tool-chip"><img src="images/icons/notion.svg" alt="" onerror="this.style.display='none'"><span>Notion</span></a>
-          <a href="https://lovable.dev" target="_blank" rel="noopener" class="tool-chip"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path clip-rule="evenodd" fill-rule="evenodd" d="M7.082 0c3.91 0 7.081 3.179 7.081 7.1v2.7h2.357c3.91 0 7.082 3.178 7.082 7.1 0 3.923-3.17 7.1-7.082 7.1H0V7.1C0 3.18 3.17 0 7.082 0z"/></svg><span>Lovable AI</span></a>
-          <a href="https://slack.com" target="_blank" rel="noopener" class="tool-chip"><img src="images/icons/slack.svg" alt="" onerror="this.style.display='none'"><span>Slack</span></a>
-          <a href="https://miro.com" target="_blank" rel="noopener" class="tool-chip"><img src="images/icons/miro.svg" alt="" onerror="this.style.display='none'"><span>Miro</span></a>
-          <a href="https://v0.dev" target="_blank" rel="noopener" class="tool-chip"><img src="images/icons/v0.svg" alt="" onerror="this.style.display='none'"><span>v0</span></a>
-          <a href="https://replit.com" target="_blank" rel="noopener" class="tool-chip"><img src="images/icons/replit.svg" alt="" onerror="this.style.display='none'"><span>Replit</span></a>
-          <a href="https://stitch.withgoogle.com/" target="_blank" rel="noopener" class="tool-chip"><img src="images/icons/stitch.svg" alt="" onerror="this.style.display='none'"><span>Stitch</span></a>
-          <a href="https://maze.co" target="_blank" rel="noopener" class="tool-chip"><img src="images/icons/maze.svg" alt="" onerror="this.style.display='none'"><span>Maze</span></a>
-          <a href="https://openai.com/codex" target="_blank" rel="noopener" class="tool-chip"><img src="images/icons/openai.svg" alt="" onerror="this.style.display='none'"><span>Codex</span></a>
-          <a href="https://attentioninsight.com" target="_blank" rel="noopener" class="tool-chip"><img src="images/icons/attentioninsight.svg" alt="" onerror="this.style.display='none'"><span>Attention Insight</span></a>
-        </div>
-      </div>
-
     </div>
   </section>
 
@@ -264,6 +151,66 @@
             <div class="project-tags"><span>Email Marketing</span><span>Digital Campaigns</span></div>
           </div>
         </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- TOOLS GRID -->
+  <section class="tools-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Tools &amp; Stack</span>
+        <h2 class="section-title">How I Work</h2>
+      </div>
+      <div class="tools-table">
+
+        <div class="tools-row">
+          <span class="tools-row-label">Design</span>
+          <div class="tools-row-items">
+            <a href="https://figma.com" target="_blank" rel="noopener" class="tool-inline"><img src="images/icons/figma.svg" alt="" onerror="this.style.display='none'"><span>Figma</span></a>
+            <a href="https://framer.com" target="_blank" rel="noopener" class="tool-inline"><img src="images/icons/framer.svg" alt="" onerror="this.style.display='none'"><span>Framer</span></a>
+            <a href="https://adobe.com/products/photoshop.html" target="_blank" rel="noopener" class="tool-inline"><img src="images/icons/adobephotoshop.svg" alt="" onerror="this.style.display='none'"><span>Photoshop</span></a>
+            <a href="https://adobe.com/products/illustrator.html" target="_blank" rel="noopener" class="tool-inline"><img src="images/icons/adobeillustrator.svg" alt="" onerror="this.style.display='none'"><span>Illustrator</span></a>
+            <a href="https://adobe.com/products/aftereffects.html" target="_blank" rel="noopener" class="tool-inline"><img src="images/icons/adobeaftereffects.svg" alt="" onerror="this.style.display='none'"><span>After Effects</span></a>
+            <a href="https://adobe.com/products/premiere.html" target="_blank" rel="noopener" class="tool-inline"><img src="images/icons/adobepremierepro.svg" alt="" onerror="this.style.display='none'"><span>Premiere Pro</span></a>
+            <a href="https://canva.com" target="_blank" rel="noopener" class="tool-inline"><img src="images/icons/canva.svg" alt="" onerror="this.style.display='none'"><span>Canva</span></a>
+          </div>
+        </div>
+
+        <div class="tools-row">
+          <span class="tools-row-label">AI</span>
+          <div class="tools-row-items">
+            <a href="https://claude.ai" target="_blank" rel="noopener" class="tool-inline"><img src="images/icons/claude.svg" alt="" onerror="this.style.display='none'"><span>Claude AI</span></a>
+            <a href="https://chatgpt.com" target="_blank" rel="noopener" class="tool-inline"><img src="images/icons/openai.svg" alt="" onerror="this.style.display='none'"><span>ChatGPT</span></a>
+            <a href="https://gemini.google.com" target="_blank" rel="noopener" class="tool-inline"><img src="images/icons/googlegemini.svg" alt="" onerror="this.style.display='none'"><span>Gemini</span></a>
+            <a href="https://lovable.dev" target="_blank" rel="noopener" class="tool-inline"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path clip-rule="evenodd" fill-rule="evenodd" d="M7.082 0c3.91 0 7.081 3.179 7.081 7.1v2.7h2.357c3.91 0 7.082 3.178 7.082 7.1 0 3.923-3.17 7.1-7.082 7.1H0V7.1C0 3.18 3.17 0 7.082 0z"/></svg><span>Lovable</span></a>
+            <a href="https://v0.dev" target="_blank" rel="noopener" class="tool-inline"><img src="images/icons/v0.svg" alt="" onerror="this.style.display='none'"><span>v0</span></a>
+            <a href="https://replit.com" target="_blank" rel="noopener" class="tool-inline"><img src="images/icons/replit.svg" alt="" onerror="this.style.display='none'"><span>Replit</span></a>
+            <a href="https://stitch.withgoogle.com/" target="_blank" rel="noopener" class="tool-inline"><img src="images/icons/stitch.svg" alt="" onerror="this.style.display='none'"><span>Stitch</span></a>
+            <a href="https://openai.com/codex" target="_blank" rel="noopener" class="tool-inline"><img src="images/icons/openai.svg" alt="" onerror="this.style.display='none'"><span>Codex</span></a>
+          </div>
+        </div>
+
+        <div class="tools-row">
+          <span class="tools-row-label">Research</span>
+          <div class="tools-row-items">
+            <a href="https://miro.com" target="_blank" rel="noopener" class="tool-inline"><img src="images/icons/miro.svg" alt="" onerror="this.style.display='none'"><span>Miro</span></a>
+            <a href="https://maze.co" target="_blank" rel="noopener" class="tool-inline"><img src="images/icons/maze.svg" alt="" onerror="this.style.display='none'"><span>Maze</span></a>
+            <a href="https://attentioninsight.com" target="_blank" rel="noopener" class="tool-inline"><img src="images/icons/attentioninsight.svg" alt="" onerror="this.style.display='none'"><span>Attention Insight</span></a>
+          </div>
+        </div>
+
+        <div class="tools-row">
+          <span class="tools-row-label">Collaboration</span>
+          <div class="tools-row-items">
+            <a href="https://notion.so" target="_blank" rel="noopener" class="tool-inline"><img src="images/icons/notion.svg" alt="" onerror="this.style.display='none'"><span>Notion</span></a>
+            <a href="https://slack.com" target="_blank" rel="noopener" class="tool-inline"><img src="images/icons/slack.svg" alt="" onerror="this.style.display='none'"><span>Slack</span></a>
+            <a href="https://microsoft.com/en-us/microsoft-teams" target="_blank" rel="noopener" class="tool-inline"><img src="images/icons/microsoftteams.svg" alt="" onerror="this.style.display='none'"><span>Teams</span></a>
+            <a href="https://github.com" target="_blank" rel="noopener" class="tool-inline"><img src="images/icons/github.svg" alt="" onerror="this.style.display='none'"><span>GitHub</span></a>
+            <a href="https://vercel.com" target="_blank" rel="noopener" class="tool-inline"><img src="images/icons/vercel.svg" alt="" onerror="this.style.display='none'"><span>Vercel</span></a>
+          </div>
+        </div>
 
       </div>
     </div>
@@ -376,28 +323,71 @@
   <!-- CONTACT -->
   <section class="contact-section" id="contact">
     <div class="container">
-      <div class="contact-inner fade-in">
+
+      <!-- Full-width header -->
+      <div class="contact-header fade-in">
         <span class="section-label">Contact</span>
         <h2 class="contact-title">Let's build something<br>together</h2>
         <p class="contact-sub">Open to new projects, collaborations, and conversations.</p>
-        <!-- Formspree: sign up at formspree.io and replace YOUR_FORM_ID below -->
-        <form id="contactForm" class="contact-form" action="https://formspree.io/f/xgornvow" method="POST">
-          <div class="form-row">
-            <div class="form-group">
-              <label for="cf-name" class="form-label">Name</label>
-              <input type="text" id="cf-name" name="name" class="form-input" placeholder="Your name" required>
+      </div>
+
+      <!-- Two-column: form + info -->
+      <div class="contact-grid fade-in">
+
+        <!-- Left: form -->
+        <div class="contact-left">
+          <form id="contactForm" class="contact-form" action="https://formspree.io/f/xgornvow" method="POST">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="cf-name" class="form-label">Name</label>
+                <input type="text" id="cf-name" name="name" class="form-input" placeholder="Your name" required>
+              </div>
+              <div class="form-group">
+                <label for="cf-email" class="form-label">Email</label>
+                <input type="email" id="cf-email" name="email" class="form-input" placeholder="your@email.com" required>
+              </div>
             </div>
             <div class="form-group">
-              <label for="cf-email" class="form-label">Email</label>
-              <input type="email" id="cf-email" name="email" class="form-input" placeholder="your@email.com" required>
+              <label for="cf-message" class="form-label">Message</label>
+              <textarea id="cf-message" name="message" class="form-input form-textarea" placeholder="Tell me about your project…" rows="5" required></textarea>
             </div>
+            <button type="submit" class="btn-primary form-submit">Send message ↗</button>
+          </form>
+        </div>
+
+        <!-- Right: contact info with icons -->
+        <div class="contact-right">
+
+          <div class="contact-info-block">
+            <div class="contact-info-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+            </div>
+            <a href="mailto:brunomattera91@gmail.com" class="contact-info-value">Email</a>
           </div>
-          <div class="form-group">
-            <label for="cf-message" class="form-label">Message</label>
-            <textarea id="cf-message" name="message" class="form-input form-textarea" placeholder="Tell me about your project…" rows="5" required></textarea>
+
+          <div class="contact-info-block">
+            <div class="contact-info-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </div>
+            <a href="https://www.linkedin.com/in/bruno-mattera/" target="_blank" rel="noopener" class="contact-info-value">LinkedIn</a>
           </div>
-          <button type="submit" class="btn-primary form-submit">Send message ↗</button>
-        </form>
+
+          <div class="contact-info-block">
+            <div class="contact-info-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+            </div>
+            <span class="contact-info-value">Montevideo, Uruguay · GMT-3</span>
+          </div>
+
+          <div class="contact-info-block">
+            <div class="contact-info-icon contact-info-icon--dot">
+              <span class="badge-dot"></span>
+            </div>
+            <span class="contact-info-value contact-info-available">Available for projects</span>
+          </div>
+
+        </div>
+
       </div>
     </div>
   </section>
@@ -405,24 +395,10 @@
   <footer class="footer">
     <div class="container footer-inner">
       <span class="footer-name">Bruno Mattera &copy; 2026</span>
-      <div class="footer-links">
-        <a href="https://www.linkedin.com/in/bruno-mattera/" target="_blank" rel="noopener">LinkedIn</a>
-      </div>
     </div>
   </footer>
 
   <script>
-    // ── Scroll progress bar ──
-    (function () {
-      var bar = document.createElement('div');
-      bar.id = 'scroll-progress';
-      document.body.appendChild(bar);
-      window.addEventListener('scroll', function () {
-        var pct = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
-        bar.style.width = (Math.min(pct, 1) * 100) + '%';
-      }, { passive: true });
-    })();
-
     // ── Hero text parallax + fade ──
     (function () {
       var heroText = document.querySelector('.hero-text');
