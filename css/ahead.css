@@ -6,10 +6,10 @@
 /* ── NAV ── */
 .nav {
   background: rgba(255,255,255,0.92);
-  border-bottom-color: rgba(0,0,0,0.06);
+  border-bottom-color: rgba(0,0,0,0.08);
 }
 .nav-logo        { color: #0F7038; }
-.nav-back        { color: rgba(0,0,0,0.45); }
+.nav-back        { color: rgba(0,0,0,0.60); }
 .nav-back:hover  { color: #0F7038; }
 
 /* ── HERO ── */

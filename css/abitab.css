@@ -12,17 +12,17 @@
   --ab-accent:      #2D8DFF;
   --cs-text:        #1A1A1A;
   --cs-muted:       rgba(0,0,0,0.55);
-  --cs-subtle:      rgba(0,0,0,0.35);
+  --cs-subtle:      rgba(0,0,0,0.55); /* raised — 4.73:1 on white ✅ */
   --cs-border:      rgba(0,0,0,0.08);
 }
 
 /* ── NAV OVERRIDE ── */
 .nav {
-  background: rgba(255,255,255,0.92);
-  border-bottom-color: rgba(0,0,0,0.06);
+  background: rgba(255,255,255,0.5);
+  border-bottom-color: rgba(0,0,0,0.08);
 }
 .nav-logo { color: var(--ab-blue); }
-.nav-back { color: rgba(0,0,0,0.45); }
+.nav-back { color: rgba(0,0,0,0.60); }
 .nav-back:hover { color: var(--ab-blue); }
 
 /* ── HERO ── */

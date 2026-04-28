@@ -5,11 +5,11 @@
 
 /* ── NAV ── */
 .nav {
-  background: rgba(20,10,52,0.90);
-  border-bottom-color: rgba(123,63,228,0.18);
+  background: rgba(13,7,32,0.5);
+  border-bottom-color: rgba(123,63,228,0.2);
 }
 .nav-logo            { color: #FFFFFF; }
-.nav-back            { color: rgba(255,255,255,0.50); }
+.nav-back            { color: rgba(255,255,255,0.65); }
 .nav-back:hover      { color: #FFFFFF; }
 
 /* ── HERO ── */
@@ -17,8 +17,8 @@
   background: linear-gradient(135deg, #0D0720 0%, #1A0F3C 40%, #2D1B69 100%);
   border-bottom-color: rgba(123,63,228,0.15);
 }
-.project-hero-year          { color: rgba(255,255,255,0.35); border-color: rgba(255,255,255,0.10); }
-.project-hero-tags span     { color: rgba(255,255,255,0.45); border-color: rgba(255,255,255,0.10); }
+.project-hero-year          { color: rgba(255,255,255,0.70); border-color: rgba(255,255,255,0.25); }
+.project-hero-tags span     { color: rgba(255,255,255,0.70); border-color: rgba(255,255,255,0.25); }
 .project-hero-title         { color: #FFFFFF; }
 .project-hero-subtitle      { color: #A78BFA; }
 .project-hero-desc          { color: rgba(255,255,255,0.60); }
@@ -51,5 +51,5 @@
   background: #0D0720;
   border-top-color: rgba(255,255,255,0.07);
 }
-.footer-name, .footer-links a { color: rgba(255,255,255,0.35); }
-.footer-links a:hover         { color: rgba(255,255,255,0.70); }
+.footer-name, .footer-links a { color: rgba(255,255,255,0.60); }
+.footer-links a:hover         { color: rgba(255,255,255,1); }

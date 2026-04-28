@@ -14,8 +14,8 @@
   --border:       rgba(255, 255, 255, 0.07);
   --border-hover: rgba(255, 255, 255, 0.15);
   --text:         #FFFFFF;
-  --text-muted:   rgba(255, 255, 255, 0.45);
-  --text-subtle:  rgba(255, 255, 255, 0.22);
+  --text-muted:   rgba(255, 255, 255, 0.60); /* ~7.5:1 on #0A0A0A ✅ */
+  --text-subtle:  rgba(255, 255, 255, 0.38); /* ~3.4:1 — decorative only */
   --accent:       #C2FF4F;
   --accent-bg:    rgba(194, 255, 79, 0.08);
   --accent-border:rgba(194, 255, 79, 0.2);
@@ -66,17 +66,20 @@ img { display: block; max-width: 100%; }
 }
 
 /* =============================================
-   NAVIGATION
+   NAVIGATION — Liquid Glass floating pill
    ============================================= */
 .nav {
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 100;
   height: var(--nav-h);
-  border-bottom: 1px solid var(--border);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  background: rgba(10, 10, 10, 0.8);
+  background: rgba(8, 8, 8, 0.45);
+  backdrop-filter: blur(40px) saturate(2) brightness(1.15);
+  -webkit-backdrop-filter: blur(40px) saturate(2) brightness(1.15);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.06) inset,
+    0 8px 32px rgba(0, 0, 0, 0.25);
 }
 
 .nav-inner {
@@ -88,14 +91,14 @@ img { display: block; max-width: 100%; }
 
 .nav-logo {
   font-family: var(--font-head);
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 700;
   letter-spacing: -0.02em;
 }
 
 .nav-links {
   display: flex;
-  gap: 32px;
+  gap: 28px;
   align-items: center;
 }
 
@@ -141,7 +144,7 @@ img { display: block; max-width: 100%; }
   margin-bottom: 28px;
 }
 
-.badge-dot {
+.hero-badge .badge-dot {
   width: 6px;
   height: 6px;
   background: var(--accent);
@@ -245,7 +248,7 @@ img { display: block; max-width: 100%; }
 
 .stat-label {
   font-size: 11px;
-  color: var(--text-subtle);
+  color: var(--text-muted);
   text-transform: uppercase;
   letter-spacing: 0.08em;
   font-weight: 500;
@@ -462,7 +465,7 @@ section { padding: 100px 0; }
 
 .project-year {
   font-size: 12px;
-  color: var(--text-subtle);
+  color: var(--text-muted);
   flex-shrink: 0;
 }
 
@@ -499,7 +502,7 @@ section { padding: 100px 0; }
 
 .exp-period {
   font-size: 13px;
-  color: var(--text-subtle);
+  color: var(--text-muted);
   padding-top: 5px;
   font-weight: 400;
   line-height: 1.5;
@@ -540,102 +543,77 @@ section { padding: 100px 0; }
 }
 
 /* =============================================
-   TOOLS MARQUEE
+   TOOLS GRID
    ============================================= */
 .tools-section {
   border-top: 1px solid var(--border);
-  background: radial-gradient(ellipse at 50% 0%, rgba(194,255,79,0.04) 0%, transparent 55%);
 }
 
-.marquee-rows {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
+.tools-table {
+  margin-top: 40px;
+  border-top: 1px solid var(--border);
 }
 
-.marquee-wrapper {
-  overflow: hidden;
-  -webkit-mask: linear-gradient(90deg, transparent 0%, black 10%, black 90%, transparent 100%);
-  mask: linear-gradient(90deg, transparent 0%, black 10%, black 90%, transparent 100%);
-}
-
-/* gap: 0 — seamless loop relies on margin-right on each chip */
-.marquee-track {
-  display: flex;
-  gap: 0;
-  width: max-content;
-  animation: marquee-ltr 42s linear infinite;
-}
-
-.marquee-rtl {
-  animation: marquee-rtl 38s linear infinite;
-}
-
-.marquee-wrapper:hover .marquee-track {
-  animation-play-state: paused;
-}
-
-/* 3 identical copies → translate by exactly 1/3 of total width */
-@keyframes marquee-ltr {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-33.333%); }
-}
-
-@keyframes marquee-rtl {
-  from { transform: translateX(-33.333%); }
-  to   { transform: translateX(0); }
-}
-
-.tool-chip {
+.tools-row {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 14px 28px;
-  border: 1px solid var(--border);
-  border-radius: 100px;
-  background: var(--surface);
-  white-space: nowrap;
+  gap: 0;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.tools-row-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
   flex-shrink: 0;
-  margin-right: 14px; /* replaces gap — required for seamless -33.333% loop */
-  transition: border-color 0.25s, background 0.25s, box-shadow 0.25s;
-  cursor: pointer;
+  width: 140px;
+}
+
+.tools-row-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  flex: 1;
+}
+
+.tool-inline {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 14px;
+  border-radius: 6px;
   text-decoration: none;
+  opacity: 0.5;
+  transition: opacity 0.15s, background 0.15s;
 }
 
-.tool-chip:hover {
-  border-color: rgba(194, 255, 79, 0.35);
-  background: var(--surface-2);
-  box-shadow: 0 0 24px rgba(194, 255, 79, 0.07);
+.tool-inline:hover {
+  opacity: 1;
+  background: var(--surface);
 }
 
-.tool-chip img {
-  width: 26px;
-  height: 26px;
+.tool-inline img,
+.tool-inline svg {
+  width: 15px;
+  height: 15px;
   flex-shrink: 0;
   filter: brightness(0) invert(1);
-  opacity: 0.8;
+  opacity: 0.85;
 }
 
-.tool-chip .chip-icon {
-  font-size: 18px;
-  line-height: 1;
-  flex-shrink: 0;
-  opacity: 0.8;
-}
-
-.tool-chip svg {
-  width: 26px;
-  height: 26px;
-  flex-shrink: 0;
-  fill: white;
-  opacity: 0.8;
-}
-
-.tool-chip span {
-  font-size: 15px;
-  font-weight: 600;
+.tool-inline span {
+  font-size: 13px;
+  font-weight: 400;
   color: var(--text-muted);
-  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .tools-row { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .tools-row-label { width: auto; }
 }
 
 /* =============================================
@@ -690,7 +668,8 @@ section { padding: 100px 0; }
 .contact-sub {
   font-size: 16px;
   color: var(--text-muted);
-  margin-bottom: 48px;
+  margin-bottom: 0;
+  max-width: 520px;
 }
 
 /* Contact form */
@@ -783,6 +762,85 @@ section { padding: 100px 0; }
   .form-submit { align-self: stretch; text-align: center; }
 }
 
+/* Contact full-width header */
+.contact-header { margin-bottom: 40px; }
+
+/* Contact two-column grid */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 64px;
+  align-items: start;
+}
+
+.contact-left { min-width: 0; }
+
+.contact-right {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding-top: 34px;
+}
+
+.contact-info-block {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.contact-info-block:first-child { border-top: 1px solid var(--border); }
+
+/* Icon column */
+.contact-info-icon {
+  width: 20px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-subtle);
+}
+
+.contact-info-icon--dot {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-info-value {
+  font-size: 14px;
+  color: var(--text-muted);
+  font-weight: 400;
+  text-decoration: none;
+  transition: color 0.2s;
+  line-height: 1.4;
+}
+
+a.contact-info-value:hover { color: var(--text); }
+
+.contact-info-available { color: var(--accent); }
+
+.contact-info-icon--dot .badge-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(194,255,79,0.45); }
+  50%       { box-shadow: 0 0 0 5px rgba(194,255,79,0); }
+}
+
+@media (max-width: 860px) {
+  .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+}
+
 /* =============================================
    FOOTER
    ============================================= */
@@ -799,7 +857,7 @@ section { padding: 100px 0; }
 
 .footer-name {
   font-size: 13px;
-  color: var(--text-subtle);
+  color: var(--text-muted);
 }
 
 .footer-links {
@@ -833,7 +891,7 @@ section { padding: 100px 0; }
 
 .project-hero-year {
   font-size: 13px;
-  color: var(--text-subtle);
+  color: var(--text-muted);
   border: 1px solid var(--border);
   padding: 4px 12px;
   border-radius: 100px;

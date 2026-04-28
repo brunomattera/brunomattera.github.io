@@ -20,7 +20,7 @@ body {
   border-bottom-color: rgba(0,0,0,0.08);
 }
 .nav-logo { color: var(--py-red); }
-.nav-back  { color: rgba(0,0,0,0.45); }
+.nav-back  { color: rgba(0,0,0,0.60); }
 .nav-back:hover { color: var(--py-red); }
 
 .project-nav-section { border-top-color: rgba(0,0,0,0.08); }
@@ -28,8 +28,8 @@ body {
 .btn-ghost:hover { border-color: rgba(0,0,0,0.35); color: #111; }
 
 .footer { border-top-color: rgba(0,0,0,0.08); }
-.footer-name { color: rgba(0,0,0,0.35); }
-.footer-links a { color: rgba(0,0,0,0.45); }
+.footer-name { color: rgba(0,0,0,0.60); }
+.footer-links a { color: rgba(0,0,0,0.60); }
 .footer-links a:hover { color: #111; }
 
 /* ── Hero — red background ── */
@@ -190,7 +190,7 @@ body {
 
 .gd-inbox-region {
   font-size: 10px;
-  color: #999;
+  color: #767676; /* min gray for 4.5:1 on white ✅ */
   display: block;
   margin-top: 1px;
 }
