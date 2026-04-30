@@ -1,6 +1,6 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-<head>
+<head><style>html{opacity:0;transition:opacity .38s ease}</style>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Bruno Mattera, Product Designer specializing in AI-powered digital experiences.">
@@ -245,8 +245,8 @@
               </div>
               <div class="about-langs-item">
                 <span>English</span>
-                <span class="about-langs-level">Fluent</span>
-                <span class="about-langs-cert">Cambridge CPE</span>
+                <span class="about-langs-level">Proficient</span>
+                <span class="about-langs-cert">University of Cambridge CPE</span>
               </div>
               <div class="about-langs-item">
                 <span>French</span>
@@ -525,6 +525,20 @@
       <span class="footer-name">Bruno Mattera &copy; 2026</span>
     </div>
   </footer>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+  <script>
+    const lenis = new Lenis({
+      duration: 1.15,
+      easing: function (t) { return 1 - Math.pow(1 - t, 4); },
+      smoothWheel: true,
+      smoothTouch: false,
+    });
+    lenis.on('scroll', function () {});
+    (function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    })(0);
+  </script>
   <script>
     // ── Hero text parallax + fade (desktop only) ──
     (function () {
@@ -647,5 +661,6 @@
     });
   </script>
 
+  <script src="js/transitions.js"></script>
 </body>
 </html>
