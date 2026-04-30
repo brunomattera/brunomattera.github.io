@@ -28,7 +28,7 @@
   --font-body:    'DM Sans', sans-serif;
 }
 
-/* scroll-behavior handled by Lenis */
+html { scroll-behavior: smooth; }
 
 /* =============================================
    CUSTOM CURSOR — Figma-style arrow, green
