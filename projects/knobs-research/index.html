@@ -1,6 +1,6 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-<head>
+<head><style>html{opacity:0;transition:opacity .38s ease}</style>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Knobs Research - Bruno Mattera</title>
@@ -78,5 +78,6 @@
     const lenis = new Lenis({ duration: 1.15, easing: function(t){ return 1 - Math.pow(1-t,4); }, smoothWheel: true, smoothTouch: false });
     (function raf(time){ lenis.raf(time); requestAnimationFrame(raf); })(0);
   </script>
+  <script src="../../js/transitions.js"></script>
 </body>
 </html>
