@@ -514,17 +514,39 @@ section { padding: 100px 0; }
    ============================================= */
 .experience { border-top: 1px solid var(--border); }
 
-.exp-list { display: flex; flex-direction: column; }
+.exp-list {
+  display: flex;
+  flex-direction: column;
+}
 
 .exp-item {
   display: grid;
   grid-template-columns: 220px 1fr;
   gap: 48px;
-  padding: 36px 0;
+  padding: 36px 16px;
+  margin: 0 -16px;
+  border-top: 1px solid var(--border);
+  border-radius: 0;
+  transition: background 0.18s, border-radius 0.18s, border-color 0.18s;
+}
+
+.exp-item:last-child {
   border-bottom: 1px solid var(--border);
 }
 
-.exp-item:first-child { border-top: 1px solid var(--border); }
+.exp-item:hover {
+  background: var(--surface);
+  border-radius: var(--radius-sm);
+  border-top-color: transparent;
+}
+
+.exp-item:hover + .exp-item {
+  border-top-color: transparent;
+}
+
+.exp-item:last-child:hover {
+  border-bottom-color: transparent;
+}
 
 .exp-period {
   font-size: 13px;
@@ -612,8 +634,8 @@ section { padding: 100px 0; }
   padding: 7px 14px;
   border-radius: 6px;
   text-decoration: none;
-  opacity: 0.5;
-  transition: opacity 0.15s, background 0.15s;
+  opacity: 0.72;
+  transition: opacity 0.18s, background 0.18s;
 }
 
 .tool-inline:hover {
@@ -623,15 +645,15 @@ section { padding: 100px 0; }
 
 .tool-inline img,
 .tool-inline svg {
-  width: 15px;
-  height: 15px;
+  width: 16px;
+  height: 16px;
   flex-shrink: 0;
   filter: brightness(0) invert(1);
-  opacity: 0.85;
+  opacity: 0.9;
 }
 
 .tool-inline span {
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 400;
   color: var(--text-muted);
   white-space: nowrap;
@@ -812,11 +834,30 @@ section { padding: 100px 0; }
   display: flex;
   align-items: center;
   gap: 14px;
-  padding: 18px 0;
+  padding: 18px 16px;
+  margin: 0 -16px;
+  border-top: 1px solid var(--border);
+  border-radius: 0;
+  transition: background 0.18s, border-radius 0.18s, border-color 0.18s;
+}
+
+.contact-info-block:last-child {
   border-bottom: 1px solid var(--border);
 }
 
-.contact-info-block:first-child { border-top: 1px solid var(--border); }
+.contact-info-block:hover {
+  background: var(--surface);
+  border-radius: var(--radius-sm);
+  border-top-color: transparent;
+}
+
+.contact-info-block:hover + .contact-info-block {
+  border-top-color: transparent;
+}
+
+.contact-info-block:last-child:hover {
+  border-bottom-color: transparent;
+}
 
 /* Icon column */
 .contact-info-icon {
@@ -1067,13 +1108,32 @@ a.contact-info-value:hover { color: var(--text); }
   grid-template-columns: 1fr auto auto;
   align-items: center;
   gap: 14px;
-  padding: 11px 0;
-  border-bottom: 1px solid var(--border);
+  padding: 11px 12px;
+  margin: 0 -12px;
+  border-top: 1px solid var(--border);
+  border-radius: 0;
   font-size: 14px;
   color: var(--text);
+  transition: background 0.18s, border-radius 0.18s, border-color 0.18s;
 }
 
-.about-langs-item:last-child { border-bottom: none; padding-bottom: 0; }
+.about-langs-item:last-child {
+  border-bottom: 1px solid var(--border);
+}
+
+.about-langs-item:hover {
+  background: var(--surface);
+  border-radius: var(--radius-sm);
+  border-top-color: transparent;
+}
+
+.about-langs-item:hover + .about-langs-item {
+  border-top-color: transparent;
+}
+
+.about-langs-item:last-child:hover {
+  border-bottom-color: transparent;
+}
 
 .about-langs-level {
   font-size: 11px;
@@ -1104,17 +1164,39 @@ a.contact-info-value:hover { color: var(--text); }
 .about-block:last-child  { border-bottom: none; padding-bottom: 0; }
 
 /* Education list */
-.about-edu-list { display: flex; flex-direction: column; }
+.about-edu-list {
+  display: flex;
+  flex-direction: column;
+}
 
 .about-edu-item {
   display: flex;
   gap: 18px;
-  padding: 11px 0;
-  border-bottom: 1px solid var(--border);
+  padding: 11px 12px;
+  margin: 0 -12px;
+  border-top: 1px solid var(--border);
+  border-radius: 0;
   align-items: flex-start;
+  transition: background 0.18s, border-radius 0.18s, border-color 0.18s;
 }
 
-.about-edu-item:last-child { border-bottom: none; padding-bottom: 0; }
+.about-edu-item:last-child {
+  border-bottom: 1px solid var(--border);
+}
+
+.about-edu-item:hover {
+  background: var(--surface);
+  border-radius: var(--radius-sm);
+  border-top-color: transparent;
+}
+
+.about-edu-item:hover + .about-edu-item {
+  border-top-color: transparent;
+}
+
+.about-edu-item:last-child:hover {
+  border-bottom-color: transparent;
+}
 
 .about-edu-year {
   font-size: 11px;
