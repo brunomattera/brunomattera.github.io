@@ -1151,45 +1151,29 @@ a.contact-info-value:hover { color: var(--text); }
    ============================================= */
 .testimonials-section { border-top: 1px solid var(--border); }
 
+.testimonials-layout {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.testimonials-layout .section-header {
+  margin-bottom: 0;
+}
+
 .testimonials-wrap {
-  /* Break out of container's right padding */
-  margin-right: -32px;
-  position: relative;
+  min-width: 0;
 }
 
-/* Fade gradient on right edge — covers carousel only, not dots */
-.testimonials-wrap::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 46px; /* leaves room for controls below */
-  width: 140px;
-  background: linear-gradient(to right, transparent, var(--bg) 85%);
-  pointer-events: none;
-  z-index: 2;
-}
-
+/* Grid stacking — all cards occupy the same cell, fade between them */
 .testimonials-carousel {
-  display: flex;
-  gap: 24px;
-  overflow-x: scroll;
-  overflow-y: hidden;
-  scrollbar-width: none;
-  cursor: grab;
-  padding-right: 140px; /* keep last card reachable past the fade */
-  scroll-behavior: auto; /* JS controls smooth scroll */
+  display: grid;
 }
-
-.testimonials-carousel::-webkit-scrollbar { display: none; }
-.testimonials-carousel.is-grabbing { cursor: grabbing; }
 
 .testimonial-card {
-  /* 78% of carousel width → always shows ~22% peek of next card */
-  min-width: 78%;
-  max-width: 78%;
-  flex-shrink: 0;
-  scroll-snap-align: start;
+  grid-area: 1 / 1;
+  max-width: 100%;
   padding: 36px 40px;
   background: var(--surface);
   border: 1px solid var(--border);
@@ -1198,21 +1182,14 @@ a.contact-info-value:hover { color: var(--text); }
   flex-direction: column;
   gap: 24px;
   box-sizing: border-box;
-  user-select: none;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.45s ease;
 }
 
-@media (max-width: 900px) {
-  .testimonials-wrap { margin-right: -20px; }
-  .testimonials-wrap::after { width: 100px; }
-  .testimonials-carousel { padding-right: 100px; }
-  .testimonial-card { min-width: 82%; max-width: 82%; }
-}
-
-@media (max-width: 600px) {
-  .testimonials-wrap { margin-right: -20px; }
-  .testimonials-wrap::after { width: 72px; }
-  .testimonials-carousel { padding-right: 72px; }
-  .testimonial-card { min-width: 88%; max-width: 88%; }
+.testimonial-card.is-active {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .testimonial-quote-mark {
@@ -1221,9 +1198,8 @@ a.contact-info-value:hover { color: var(--text); }
   font-weight: 800;
   line-height: 1;
   color: var(--accent);
-  opacity: 0.5;
   flex-shrink: 0;
-  margin-bottom: -48px; /* pull quote text up close under the mark */
+  margin-bottom: -48px;
   user-select: none;
 }
 
@@ -1631,6 +1607,10 @@ a.contact-info-value:hover { color: var(--text); }
     grid-template-columns: 1fr;
     gap: 8px;
   }
+
+  .testimonials-layout { grid-template-columns: 1fr; gap: 36px; }
+  .testimonials-layout .section-header { margin-bottom: 0; }
+  .testimonial-card { max-width: 100%; }
 }
 
 @media (max-width: 600px) {
