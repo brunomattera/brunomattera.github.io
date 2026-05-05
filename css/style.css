@@ -1344,8 +1344,7 @@ a.contact-info-value:hover { color: var(--text); }
 /* Languages strip */
 .about-langs {
   margin-top: 40px;
-  padding-top: 28px;
-  border-top: 1px solid var(--border);
+  padding-top: 0;
 }
 
 .about-block-label {
@@ -1417,12 +1416,11 @@ a.contact-info-value:hover { color: var(--text); }
 .about-aside { display: flex; flex-direction: column; }
 
 .about-block {
-  padding: 28px 0;
-  border-bottom: 1px solid var(--border);
+  padding: 16px 0;
 }
 
 .about-block:first-child { padding-top: 0; }
-.about-block:last-child  { border-bottom: none; padding-bottom: 0; }
+.about-block:last-child  { padding-bottom: 0; }
 
 /* Education list */
 .about-edu-list {
