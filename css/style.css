@@ -9,13 +9,14 @@
 
 :root {
   --bg:           #0A0A0A;
+  --bg-alt:       #111111;
   --surface:      #141414;
   --surface-2:    #1C1C1C;
   --border:       rgba(255, 255, 255, 0.07);
   --border-hover: rgba(255, 255, 255, 0.15);
   --text:         #FFFFFF;
-  --text-muted:   rgba(255, 255, 255, 0.60); /* ~7.5:1 on #0A0A0A ✅ */
-  --text-subtle:  rgba(255, 255, 255, 0.38); /* ~3.4:1 — decorative only */
+  --text-muted:   rgba(255, 255, 255, 0.60);
+  --text-subtle:  rgba(255, 255, 255, 0.38);
   --accent:       #C2FF4F;
   --accent-bg:    rgba(194, 255, 79, 0.08);
   --accent-border:rgba(194, 255, 79, 0.2);
@@ -26,6 +27,21 @@
   --nav-h:        72px;
   --font-head:    'Syne', sans-serif;
   --font-body:    'DM Sans', sans-serif;
+}
+
+[data-theme="light"] {
+  --bg:           #FAF6F0;
+  --bg-alt:       #F0E8DC;
+  --surface:      #FFFFFF;
+  --surface-2:    #F5EDE2;
+  --border:       rgba(120, 80, 40, 0.12);
+  --border-hover: rgba(120, 80, 40, 0.26);
+  --text:         #1C1510;
+  --text-muted:   rgba(28, 21, 16, 0.58);
+  --text-subtle:  rgba(28, 21, 16, 0.35);
+  --accent:       #C8521A;
+  --accent-bg:    rgba(200, 82, 26, 0.09);
+  --accent-border:rgba(200, 82, 26, 0.28);
 }
 
 /* scroll-behavior handled by Lenis */
@@ -85,6 +101,33 @@ img { display: block; max-width: 100%; }
   box-shadow:
     0 1px 0 rgba(255, 255, 255, 0.06) inset,
     0 8px 32px rgba(0, 0, 0, 0.25);
+  transition: background 0.3s, border-color 0.3s;
+}
+
+[data-theme="light"] .nav {
+  background: rgba(247, 247, 245, 0.75);
+  border-bottom-color: rgba(0, 0, 0, 0.08);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.5) inset, 0 8px 32px rgba(0,0,0,0.06);
+}
+
+/* Theme toggle button */
+.theme-toggle {
+  width: 34px;
+  height: 34px;
+  border-radius: 100px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+  flex-shrink: 0;
+}
+.theme-toggle:hover {
+  border-color: var(--border-hover);
+  color: var(--text);
 }
 
 .nav-inner {
@@ -116,6 +159,17 @@ img { display: block; max-width: 100%; }
 
 .nav-links a:hover, .nav-back:hover { color: var(--text); }
 
+
+/* =============================================
+   SECTION BACKGROUNDS — alternating
+   ============================================= */
+.work            { background: var(--bg-alt); }
+.process-section { background: var(--bg); }
+.about-section   { background: var(--bg-alt); }
+.experience      { background: var(--bg); }
+.tools-section   { background: var(--bg-alt); }
+.testimonials-section { background: var(--bg); }
+.contact-section { background: var(--bg-alt); }
 
 /* =============================================
    HERO
@@ -1586,6 +1640,76 @@ a.contact-info-value:hover { color: var(--text); }
 
 @media (max-width: 900px) {
   .about-grid { grid-template-columns: 1fr; gap: 52px; }
+}
+
+/* =============================================
+   LIGHT MODE OVERRIDES
+   ============================================= */
+
+/* Nav */
+[data-theme="light"] .nav {
+  background: rgba(250, 246, 240, 0.80);
+  border-bottom-color: rgba(120, 80, 40, 0.12);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.6) inset, 0 4px 24px rgba(0,0,0,0.06);
+}
+
+/* Hero name — warm charcoal shimmer instead of white */
+[data-theme="light"] .hero-name {
+  background: linear-gradient(
+    110deg,
+    #1a1510 0%,
+    #2e2520 22%,
+    #3a3028 30%,
+    #2a2018 34%,
+    #1c1510 50%,
+    #302820 62%,
+    #3a3028 70%,
+    #1a1510 85%,
+    #2e2520 100%
+  );
+  background-size: 280% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: none;
+}
+
+/* Hero role pill */
+[data-theme="light"] .hero-role {
+  color: var(--text);
+  background:
+    linear-gradient(var(--bg), var(--bg)) padding-box,
+    linear-gradient(90deg, #C8521A, #E8845A, #D4632A, #F09060, #C8521A) border-box;
+}
+
+/* Hero ghost button */
+[data-theme="light"] .hero-cta .btn-ghost {
+  border-color: var(--border-hover);
+  color: var(--text-muted);
+}
+[data-theme="light"] .hero-cta .btn-ghost:hover {
+  border-color: var(--accent);
+  color: var(--text);
+}
+
+.img-light                          { display: none; }
+[data-theme="light"] .img-dark      { display: none; }
+[data-theme="light"] .img-light     { display: block; }
+
+[data-theme="light"] .hero-image::before {
+  opacity: 0.45;
+}
+
+/* Tool icons — black instead of white */
+[data-theme="light"] .tool-inline img,
+[data-theme="light"] .tool-inline svg {
+  filter: brightness(0) opacity(0.65);
+}
+
+/* Project overlay */
+[data-theme="light"] .project-overlay {
+  background: rgba(28, 21, 16, 0.75);
+  color: #FAF6F0;
 }
 
 /* =============================================
