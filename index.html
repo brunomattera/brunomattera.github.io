@@ -20,6 +20,8 @@
 </head>
 <body>
 
+  <div class="scroll-progress" id="scrollProgress"></div>
+
   <nav class="nav">
     <div class="container nav-inner">
       <a href="/" class="nav-logo">BM</a>
@@ -94,7 +96,7 @@
         <a href="projects/flex/" class="project-card fade-in">
           <div class="project-img">
             <img src="images/thumbs/flex-bd.png" alt="Flex" loading="lazy">
-            <div class="project-overlay">View case study →&#xFE0E;</div>
+            <div class="project-overlay"><span class="project-overlay-cta">View case study <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></div>
           </div>
           <div class="project-info">
             <div class="project-meta">
@@ -108,7 +110,7 @@
         <a href="projects/abitab/" class="project-card fade-in">
           <div class="project-img">
             <img src="images/thumbs/abitab.png" alt="Abitab" loading="lazy">
-            <div class="project-overlay">View case study →&#xFE0E;</div>
+            <div class="project-overlay"><span class="project-overlay-cta">View case study <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></div>
           </div>
           <div class="project-info">
             <div class="project-meta">
@@ -122,7 +124,7 @@
         <a href="projects/creative-juice/" class="project-card fade-in">
           <div class="project-img">
             <img src="images/thumbs/creative-juice.png" alt="Creative Juice" loading="lazy">
-            <div class="project-overlay">View case study →&#xFE0E;</div>
+            <div class="project-overlay"><span class="project-overlay-cta">View case study <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></div>
           </div>
           <div class="project-info">
             <div class="project-meta">
@@ -136,7 +138,7 @@
         <a href="projects/ahead/" class="project-card fade-in">
           <div class="project-img">
             <img src="images/thumbs/ahead.png" alt="Ahead" loading="lazy">
-            <div class="project-overlay">View case study →&#xFE0E;</div>
+            <div class="project-overlay"><span class="project-overlay-cta">View case study <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></div>
           </div>
           <div class="project-info">
             <div class="project-meta">
@@ -150,7 +152,7 @@
         <a href="projects/heliflite/" class="project-card fade-in">
           <div class="project-img">
             <img src="images/thumbs/heliflite.png" alt="HeliFlite" loading="lazy">
-            <div class="project-overlay">View case study →&#xFE0E;</div>
+            <div class="project-overlay"><span class="project-overlay-cta">View case study <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></div>
           </div>
           <div class="project-info">
             <div class="project-meta">
@@ -164,7 +166,7 @@
         <a href="projects/pedidosya/" class="project-card fade-in">
           <div class="project-img">
             <img src="images/thumbs/pedidosya.png" alt="PedidosYa Email Marketing" loading="lazy">
-            <div class="project-overlay">View campaigns →&#xFE0E;</div>
+            <div class="project-overlay"><span class="project-overlay-cta">View campaigns <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></div>
           </div>
           <div class="project-info">
             <div class="project-meta">
@@ -246,6 +248,11 @@
         <!-- Left: bio + languages -->
         <div class="about-intro fade-in">
           <span class="section-label">About</span>
+          <div class="currently-badge">
+            <span class="currently-dot"></span>
+            <span class="currently-label">Currently</span>
+            <span class="currently-text">Exploring AI agent UX & design systems</span>
+          </div>
           <h2 class="about-headline">Product designer<br>based in Montevideo.</h2>
           <p class="about-lead">Over 13 years shaping digital products, from fintech platforms to enterprise tools, I bring both strategic thinking and pixel-level obsession to every project. Currently Design Lead at 10Pearls, leading UX across teams in the US and Latin America.</p>
           <p class="about-body">My approach blends rigorous user research with a visual sensibility built across hundreds of projects. I believe great design isn't only beautiful, it's clear, accessible, and quietly builds trust.</p>
@@ -626,7 +633,7 @@
       <!-- Full-width header -->
       <div class="contact-header fade-in">
         <span class="section-label">Contact</span>
-        <h2 class="contact-title">Let's build something<br>together</h2>
+        <h2 class="contact-title">Let's build something<br><span class="highlight">great</span> together.</h2>
         <p class="contact-sub">Open to new projects, collaborations, and conversations.</p>
       </div>
 
@@ -871,6 +878,20 @@
     })();
   </script>
   <script src="js/transitions.js"></script>
+  <script>
+    // Scroll progress bar
+    (function () {
+      var bar = document.getElementById('scrollProgress');
+      if (!bar) return;
+      function update() {
+        var h = document.documentElement;
+        var pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+        bar.style.width = pct + '%';
+      }
+      window.addEventListener('scroll', update, { passive: true });
+      update();
+    })();
+  </script>
   <script>
     // Theme toggle
     (function () {
