@@ -442,11 +442,10 @@ img { display: block; max-width: 100%; }
 
 .stat-num {
   font-family: var(--font-head);
-  font-size: 56px;
-  font-weight: 800;
+  font-size: 40px;
+  font-weight: 700;
   letter-spacing: -0.04em;
   line-height: 1;
-  color: var(--accent);
   display: flex;
   align-items: baseline;
   font-variant-numeric: tabular-nums;
@@ -459,19 +458,14 @@ img { display: block; max-width: 100%; }
   text-align: right;
 }
 
-.stat-plus {
-  color: var(--accent);
-  font-size: 38px;
-  margin-left: 2px;
-}
+.stat-plus { color: var(--accent); }
 
 .stat-label {
   font-size: 11px;
   color: var(--text-muted);
   text-transform: uppercase;
-  letter-spacing: 0.12em;
-  font-weight: 600;
-  margin-top: 6px;
+  letter-spacing: 0.08em;
+  font-weight: 500;
 }
 
 .stat-divider {
