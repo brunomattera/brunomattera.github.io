@@ -217,54 +217,39 @@ img { display: block; max-width: 100%; }
 }
 
 /* Floating aurora orbs */
-.hero::before,
-.hero::after {
+/* Single subtle accent orb floating in the background */
+.hero::before {
   content: '';
   position: absolute;
+  width: 480px;
+  height: 480px;
+  top: -100px;
+  right: -120px;
   border-radius: 50%;
   pointer-events: none;
   z-index: -1;
-  filter: blur(120px);
-  opacity: 0.55;
+  filter: blur(140px);
+  background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+  opacity: 0.22;
+  animation: orb-float-1 18s ease-in-out infinite alternate;
   will-change: transform;
 }
 
-.hero::before {
-  width: 520px;
-  height: 520px;
-  top: -120px;
-  right: -80px;
-  background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
-  animation: orb-float-1 18s ease-in-out infinite alternate;
-}
-
-.hero::after {
-  width: 460px;
-  height: 460px;
-  bottom: -160px;
-  left: -100px;
-  background: radial-gradient(circle, #6E8AFF 0%, transparent 70%);
-  opacity: 0.32;
-  animation: orb-float-2 22s ease-in-out infinite alternate;
-}
-
-[data-theme="light"] .hero::after {
-  background: radial-gradient(circle, #F4A678 0%, transparent 70%);
-  opacity: 0.55;
-}
-
 [data-theme="light"] .hero::before {
-  opacity: 0.4;
+  opacity: 0.18;
+}
+
+@media (max-width: 600px) {
+  .hero::before {
+    width: 320px;
+    height: 320px;
+    opacity: 0.18;
+  }
 }
 
 @keyframes orb-float-1 {
   0%   { transform: translate(0, 0) scale(1); }
-  100% { transform: translate(-60px, 80px) scale(1.15); }
-}
-
-@keyframes orb-float-2 {
-  0%   { transform: translate(0, 0) scale(1); }
-  100% { transform: translate(80px, -60px) scale(1.1); }
+  100% { transform: translate(-40px, 60px) scale(1.1); }
 }
 
 .hero-inner,
@@ -1438,12 +1423,28 @@ a.contact-info-block:hover .contact-info-value {
 
 @media (max-width: 768px) {
   .process-item {
-    grid-template-columns: 40px 1fr;
+    grid-template-columns: 56px 1fr;
     grid-template-rows: auto auto;
-    gap: 12px 16px;
+    gap: 14px 16px;
+    padding: 20px 16px;
+    margin: 0 -16px;
+    align-items: start;
+  }
+  .process-num {
+    font-size: 28px;
+    line-height: 1;
+    transform: none;
+    grid-row: 1;
+    grid-column: 1;
+  }
+  .process-head {
+    grid-row: 1;
+    grid-column: 2;
+    min-height: 36px;
   }
   .process-desc {
-    grid-column: 2;
+    grid-row: 2;
+    grid-column: 1 / -1;
   }
 }
 
@@ -2008,10 +2009,25 @@ a.contact-info-block:hover .contact-info-value {
 
   .projects-grid { grid-template-columns: 1fr 1fr; }
 
+  /* Experience — stacked, no timeline line/dots */
+  .exp-list::before { display: none; }
   .exp-item {
     grid-template-columns: 1fr;
     gap: 8px;
+    padding: 24px 16px;
   }
+  .exp-item::after { display: none; }
+  .exp-period { padding-top: 0; }
+
+  /* Education — same treatment, stacked layout, no decorative timeline */
+  .about-edu-list::before { display: none; }
+  .about-edu-item {
+    flex-direction: column;
+    gap: 4px;
+    padding: 12px;
+  }
+  .about-edu-item::after { display: none; }
+  .about-edu-year { width: auto; padding-top: 0; }
 
   .testimonials-layout { grid-template-columns: 1fr; gap: 36px; }
   .testimonials-layout .section-header { margin-bottom: 0; }
@@ -2027,10 +2043,45 @@ a.contact-info-block:hover .contact-info-value {
   }
 
   .projects-grid { grid-template-columns: 1fr; }
-  .hero-stats { gap: 20px; }
-  .stat-num { font-size: 30px; }
-  .nav-links { gap: 18px; }
 
+  /* Hero stats — tighter, smaller dividers */
+  .hero-stats { gap: 16px; flex-wrap: wrap; }
+  .stat-num { font-size: 30px; }
+  .stat-divider { height: 32px; }
+
+  /* Nav */
+  .nav-links { gap: 14px; }
+
+  /* Process — single column flow on phone */
+  .process-item {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 8px;
+    padding: 18px 14px;
+    margin: 0 -14px;
+  }
+  .process-num { font-size: 24px; grid-column: 1; grid-row: 1; }
+  .process-head { grid-column: 1; grid-row: 2; }
+  .process-desc { grid-column: 1; grid-row: 3; }
+
+  /* About text */
+  .about-langs-item > span:first-child { min-width: 70px; }
+
+  /* Tools — smaller pills */
+  .tools-table { gap: 24px; }
+  .tool-inline { padding: 6px 11px; gap: 8px; font-size: 12.5px; }
+  .tool-inline span { font-size: 12.5px; }
+  .tool-inline img, .tool-inline svg { width: 14px; height: 14px; }
+
+  /* Testimonials card padding */
+  .testimonial-card { padding: 28px 24px; gap: 20px; }
+  .testimonial-quote-mark { font-size: 60px; margin-bottom: -36px; }
+  .testimonial-quote { font-size: 14.5px; line-height: 1.7; }
+
+  /* Contact title — keep glow tight on small screen */
+  .contact-title { font-size: clamp(36px, 11vw, 56px); }
+
+  /* Project pages */
   .project-nav-inner {
     flex-direction: column;
     gap: 16px;
