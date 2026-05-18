@@ -1994,10 +1994,11 @@ a.contact-info-block:hover .contact-info-value {
   filter: brightness(0) opacity(0.65);
 }
 
-/* Project overlay */
+/* Project overlay — light & warm in light mode, not a harsh dark box */
 [data-theme="light"] .project-overlay {
-  background: rgba(28, 21, 16, 0.75);
-  color: #FAF6F0;
+  background: rgba(250, 246, 240, 0.72);
+  color: var(--text);
+  backdrop-filter: blur(6px);
 }
 
 /* =============================================
