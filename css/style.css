@@ -1433,7 +1433,7 @@ a.contact-info-block:hover .contact-info-value {
   .process-num {
     font-size: 28px;
     line-height: 1;
-    transform: none;
+    transform: translateY(-3px);
     grid-row: 1;
     grid-column: 1;
   }
@@ -2009,24 +2009,44 @@ a.contact-info-block:hover .contact-info-value {
 
   .projects-grid { grid-template-columns: 1fr 1fr; }
 
-  /* Experience — stacked, no timeline line/dots */
-  .exp-list::before { display: none; }
+  /* Experience — stacked, timeline runs along the left edge */
+  .exp-list { padding-left: 24px; position: relative; }
+  .exp-list::before {
+    left: 4px;
+    top: 8px;
+    bottom: 8px;
+  }
   .exp-item {
     grid-template-columns: 1fr;
     gap: 8px;
-    padding: 24px 16px;
+    padding: 16px 0 16px 8px;
+    margin: 0;
+    position: relative;
   }
-  .exp-item::after { display: none; }
+  .exp-item::after {
+    left: -25px;
+    top: 22px;
+  }
   .exp-period { padding-top: 0; }
 
-  /* Education — same treatment, stacked layout, no decorative timeline */
-  .about-edu-list::before { display: none; }
+  /* Education — stacked, timeline on the left */
+  .about-edu-list { padding-left: 22px; position: relative; }
+  .about-edu-list::before {
+    left: 4px;
+    top: 6px;
+    bottom: 6px;
+  }
   .about-edu-item {
     flex-direction: column;
     gap: 4px;
-    padding: 12px;
+    padding: 10px 0 10px 6px;
+    margin: 0;
+    position: relative;
   }
-  .about-edu-item::after { display: none; }
+  .about-edu-item::after {
+    left: -22px;
+    top: 14px;
+  }
   .about-edu-year { width: auto; padding-top: 0; }
 
   .testimonials-layout { grid-template-columns: 1fr; gap: 36px; }
@@ -2052,17 +2072,18 @@ a.contact-info-block:hover .contact-info-value {
   /* Nav */
   .nav-links { gap: 14px; }
 
-  /* Process — single column flow on phone */
+  /* Process — number stays on same line as icon+title, description below */
   .process-item {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto auto;
-    gap: 8px;
+    grid-template-columns: 42px 1fr;
+    grid-template-rows: auto auto;
+    gap: 10px 12px;
     padding: 18px 14px;
     margin: 0 -14px;
+    align-items: center;
   }
-  .process-num { font-size: 24px; grid-column: 1; grid-row: 1; }
-  .process-head { grid-column: 1; grid-row: 2; }
-  .process-desc { grid-column: 1; grid-row: 3; }
+  .process-num { font-size: 24px; line-height: 1; transform: translateY(-2px); grid-column: 1; grid-row: 1; }
+  .process-head { grid-column: 2; grid-row: 1; gap: 10px; }
+  .process-desc { grid-column: 1 / -1; grid-row: 2; }
 
   /* About text */
   .about-langs-item > span:first-child { min-width: 70px; }
