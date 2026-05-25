@@ -185,9 +185,8 @@
 
 .cs-solution-card {
   background: var(--flex-green-light);
-  border-left: 3px solid var(--flex-green);
   border-radius: var(--radius-lg);
-  padding: 28px 28px 28px 24px;
+  padding: 28px;
   display: flex;
   flex-direction: column;
 }

@@ -170,9 +170,8 @@
 
 .cs-solution-card {
   background: var(--ab-blue-faint);
-  border-left: 3px solid var(--ab-accent);
   border-radius: var(--radius-lg);
-  padding: 28px 28px 28px 24px;
+  padding: 28px;
   display: flex;
   flex-direction: column;
 }
@@ -522,9 +521,8 @@
 
 .ab-quote-card {
   background: var(--ab-blue-faint);
-  border-left: 3px solid var(--ab-accent);
-  border-radius: 0 var(--radius) var(--radius) 0;
-  padding: 22px 22px 22px 24px;
+  border-radius: var(--radius);
+  padding: 22px;
   position: relative;
   overflow: hidden;
 }
@@ -619,7 +617,6 @@
   padding: 22px 28px;
   background: rgba(45,141,255,0.05);
   border: 1px solid rgba(45,141,255,0.18);
-  border-left: 4px solid var(--ab-accent);
   border-radius: var(--radius-lg);
 }
 
@@ -648,10 +645,9 @@
 
 .ab-critical-card {
   background: #FFFFFF;
-  border: 1px solid var(--cs-border);
+  border: 1px solid rgba(45, 141, 255, 0.35);
   border-radius: var(--radius-lg);
   padding: 28px;
-  border-left: 4px solid var(--ab-accent);
 }
 
 .ab-critical-title {
