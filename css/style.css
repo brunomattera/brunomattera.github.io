@@ -2065,8 +2065,11 @@ a.contact-info-block:hover .contact-info-value {
   .projects-grid { grid-template-columns: 1fr; }
 
   /* Hero stats — tighter, smaller dividers */
-  .hero-stats { gap: 16px; flex-wrap: wrap; }
-  .stat-num { font-size: 30px; }
+  /* Hero stats — keep in one row on mobile */
+  .hero-stats { gap: 14px; flex-wrap: nowrap; }
+  .stat-num { font-size: 26px; }
+  .stat-plus { font-size: 22px; }
+  .stat-label { font-size: 10px; letter-spacing: 0.06em; }
   .stat-divider { height: 32px; }
 
   /* Nav */
