@@ -1,11 +1,47 @@
 /* =============================================
    PROPELUS · CE BROKER UX AUDIT — case styles
+   Real Propelus brand: purple #4F1A47 · magenta #E00089 · lime #7DFF00
    ============================================= */
+
+/* Full Propelus theme — cream sections, purple hero, magenta as accent
+   Matches propelus.com aesthetic (cream + dark text, purple/magenta as punctuation) */
+:root,
+[data-theme="light"] {
+  /* Magenta accent — used sparingly, as punctuation */
+  --accent: #E00089;
+  --accent-bg: rgba(224, 0, 137, 0.08);
+  --accent-border: rgba(224, 0, 137, 0.25);
+
+  /* Cream-themed backgrounds matching propelus.com */
+  --bg:           #FAF9F5;
+  --bg-alt:       #F2F0EB;
+  --surface:      #FFFFFF;
+  --surface-2:    #F6F4EE;
+
+  /* Dark text on cream */
+  --text:         #1C1B01;
+  --text-muted:   rgba(28, 27, 1, 0.65);
+  --text-subtle:  rgba(28, 27, 1, 0.42);
+
+  /* Subtle borders */
+  --border:       rgba(28, 27, 1, 0.10);
+  --border-hover: rgba(28, 27, 1, 0.22);
+}
+
+/* Propelus brand colors as raw variables */
+body {
+  --propelus-purple: #4F1A47;
+  --propelus-purple-deep: #2E0E2C;
+  --propelus-magenta: #E00089;
+  --propelus-magenta-light: #FF4DAA;
+  background: #FAF9F5;
+}
 
 /* Shared case-study primitives — themed via global vars so it works in light/dark */
 .cs-section {
   padding: 88px 0;
   border-top: 1px solid var(--border);
+  background: var(--bg);
 }
 .cs-section--alt { background: var(--bg-alt); }
 
@@ -173,10 +209,72 @@
   color: var(--text-muted);
 }
 
-/* HERO */
+/* ── HERO — full Propelus purple flood ── */
 .project-hero--propelus {
-  border-bottom: 1px solid var(--border);
+  background: linear-gradient(135deg, #2E0E2C 0%, #4F1A47 55%, #5E2256 100%);
+  border-bottom-color: rgba(255,255,255,0.07);
+  position: relative;
+  overflow: hidden;
 }
+
+.project-hero--propelus::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 900px 600px at 85% 100%, rgba(224, 0, 137, 0.16), transparent 60%),
+    radial-gradient(ellipse 700px 500px at 5% 0%, rgba(255, 77, 170, 0.06), transparent 60%);
+  pointer-events: none;
+}
+
+/* Hero text overrides to read on purple */
+.project-hero--propelus .project-hero-year      { color: rgba(255,255,255,0.70); border-color: rgba(255,255,255,0.25); }
+.project-hero--propelus .project-hero-tags span { color: rgba(255,255,255,0.70); border-color: rgba(255,255,255,0.25); }
+.project-hero--propelus .project-hero-title     { color: #FFFFFF; }
+.project-hero--propelus .project-hero-subtitle  { color: #FF4DAA; }
+.project-hero--propelus .project-hero-desc      { color: rgba(255,255,255,0.78); }
+
+/* Nav — purple-translucent at the top (over hero), cream-translucent over the rest */
+.nav {
+  background: rgba(46, 14, 44, 0.85);
+  backdrop-filter: blur(20px);
+  border-bottom-color: rgba(255,255,255,0.10);
+  box-shadow: none;
+}
+.nav-logo       { color: #FFFFFF; }
+.nav-back       { color: rgba(255,255,255,0.75); }
+.nav-back:hover { color: #FFFFFF; }
+
+/* PROJECT NAV (bottom prev/next) — cream with magenta accent */
+.project-nav-section {
+  border-top-color: rgba(28,27,1,0.10);
+  background: var(--bg-alt);
+}
+.project-nav-section .btn-ghost {
+  border-color: rgba(28,27,1,0.18);
+  color: var(--text-muted);
+}
+.project-nav-section .btn-ghost:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.project-nav-section .btn-primary {
+  background: var(--propelus-magenta);
+  color: #FFFFFF;
+  border: 1px solid var(--propelus-magenta);
+}
+.project-nav-section .btn-primary:hover {
+  background: var(--propelus-magenta-light);
+  border-color: var(--propelus-magenta-light);
+}
+
+/* FOOTER — soft cream-darker */
+.footer {
+  background: var(--bg-alt);
+  border-top-color: rgba(28,27,1,0.08);
+}
+.footer-name, .footer-links a { color: var(--text-muted); }
+.footer-links a:hover         { color: var(--text); }
 
 .pr-hero-grid {
   display: grid;
@@ -189,40 +287,89 @@
   min-width: 0;
 }
 
-.pr-hero-mock {
+/* Hero composite — clean editorial layout, magenta only */
+.pr-hero-composite {
   position: relative;
   border-radius: var(--radius-lg);
   overflow: hidden;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 16 / 10;
+  background: transparent;
+  isolation: isolate;
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
 }
 
-.pr-hero-mock img {
+.pr-hero-stack {
+  position: relative;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+  height: 78%;
 }
 
-/* Fallback if the hero image isn't there yet */
-.pr-hero-mock::after {
-  content: 'Hero mockup';
+.pr-card {
   position: absolute;
-  inset: 0;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #fff;
+}
+.pr-card img { width: 100%; display: block; }
+
+.pr-card--back {
+  top: 12%;
+  right: 8%;
+  width: 56%;
+  box-shadow:
+    0 24px 40px rgba(0, 0, 0, 0.40),
+    0 0 0 1px rgba(255, 255, 255, 0.06);
+  transform: rotate(2deg);
+}
+
+.pr-card--front {
+  top: 0;
+  left: 8%;
+  width: 60%;
+  box-shadow:
+    0 28px 50px rgba(0, 0, 0, 0.50),
+    0 0 0 1px rgba(255, 255, 255, 0.10);
+  z-index: 2;
+}
+
+/* Magenta accent strip across the bottom */
+.pr-hero-meta-strip {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: var(--font-head);
-  font-size: 13px;
+  gap: 14px;
+  padding: 14px 20px;
+  margin-top: auto;
+  background: linear-gradient(90deg, transparent, rgba(224, 0, 137, 0.18), transparent);
+  border-top: 1px solid rgba(224, 0, 137, 0.35);
+  border-bottom: 1px solid rgba(224, 0, 137, 0.18);
+}
+.pr-meta-stat {
+  font-size: 11px;
   font-weight: 600;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--text-subtle);
-  z-index: -1;
+  letter-spacing: 0.06em;
+  color: rgba(255,255,255,0.80);
+  white-space: nowrap;
+}
+.pr-meta-stat strong {
+  font-family: var(--font-head);
+  color: #FF4DAA;
+  font-weight: 800;
+  margin-right: 4px;
+}
+.pr-meta-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #E00089;
+  opacity: 0.5;
+}
+
+@media (max-width: 700px) {
+  .pr-hero-meta-strip { gap: 10px; padding: 10px 14px; }
+  .pr-meta-stat       { font-size: 10px; }
 }
 
 /* CLIENT STATS */
@@ -398,6 +545,8 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  image-rendering: auto;
+  -ms-interpolation-mode: bicubic;
 }
 
 .pr-result-text {
@@ -451,6 +600,9 @@
   border-radius: var(--radius-sm);
   background: var(--surface);
   border: 1px solid var(--border);
+  /* Smooth downsampling — helps with aliasing on small displays */
+  image-rendering: auto;
+  -ms-interpolation-mode: bicubic;
 }
 
 /* RESPONSIVE */
