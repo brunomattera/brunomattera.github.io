@@ -2058,8 +2058,8 @@ a.contact-info-block:hover .contact-info-value {
   .container { padding: 0 20px; }
 
   .hero {
-    padding-top: calc(var(--nav-h) + 48px);
-    padding-bottom: 80px;
+    padding-top: calc(var(--nav-h) + 12px);
+    padding-bottom: 60px;
   }
 
   .projects-grid { grid-template-columns: 1fr; }
