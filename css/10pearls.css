@@ -429,6 +429,12 @@
   color: var(--text);
 }
 
+.tp-stack-chip--ai {
+  background: var(--accent-bg);
+  border-color: var(--accent-border);
+  color: var(--accent);
+}
+
 /* TAKEAWAYS */
 .tp-takeaways {
   display: grid;
