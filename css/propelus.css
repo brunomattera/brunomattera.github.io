@@ -74,15 +74,17 @@ body {
 .cs-about-text { margin-bottom: 36px; }
 
 .cs-role-callout {
-  display: inline-block;
-  padding: 10px 18px;
-  border-radius: 100px;
+  display: block;
+  padding: 18px 22px;
+  border-radius: var(--radius);
   background: var(--accent-bg);
   border: 1px solid var(--accent-border);
-  color: var(--accent);
-  font-size: 14px;
-  font-weight: 600;
-  margin-bottom: 20px;
+  color: var(--text);
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.6;
+  margin-bottom: 24px;
+  max-width: 720px;
 }
 
 .cs-cards-row {
