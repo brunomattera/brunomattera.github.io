@@ -587,7 +587,53 @@ body {
   margin-top: 40px;
 }
 
-/* DELIVERABLES — Figma prototype embeds, full width */
+/* TAKEAWAYS */
+.pr-takeaways {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 36px;
+}
+
+.pr-takeaway {
+  padding: 28px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  transition: border-color 0.25s, background 0.25s;
+}
+
+.pr-takeaway:hover {
+  border-color: var(--accent-border);
+  background: var(--accent-bg);
+}
+
+.pr-takeaway-num {
+  font-family: var(--font-head);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--accent);
+  display: block;
+  margin-bottom: 14px;
+}
+
+.pr-takeaway-title {
+  font-family: var(--font-head);
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+
+.pr-takeaway-body {
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--text-muted);
+}
+
+/* DELIVERABLES - Figma prototype embeds, full width */
 .pr-decks {
   display: flex;
   flex-direction: column;
@@ -736,6 +782,9 @@ body {
   }
   .pr-gallery {
     grid-template-columns: 1fr 1fr;
+  }
+  .pr-takeaways {
+    grid-template-columns: 1fr;
   }
 }
 
