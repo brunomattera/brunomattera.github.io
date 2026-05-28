@@ -30,18 +30,18 @@
 }
 
 [data-theme="light"] {
-  --bg:           #FAF6F0;
-  --bg-alt:       #F0E8DC;
+  --bg:           #FFFFFF;
+  --bg-alt:       #F4F4F6;
   --surface:      #FFFFFF;
-  --surface-2:    #F5EDE2;
-  --border:       rgba(120, 80, 40, 0.12);
-  --border-hover: rgba(120, 80, 40, 0.26);
-  --text:         #1C1510;
-  --text-muted:   rgba(28, 21, 16, 0.58);
-  --text-subtle:  rgba(28, 21, 16, 0.35);
-  --accent:       #C8521A;
-  --accent-bg:    rgba(200, 82, 26, 0.09);
-  --accent-border:rgba(200, 82, 26, 0.28);
+  --surface-2:    #EBEBED;
+  --border:       rgba(0, 0, 0, 0.08);
+  --border-hover: rgba(0, 0, 0, 0.20);
+  --text:         #0A0A0A;
+  --text-muted:   rgba(10, 10, 10, 0.54);
+  --text-subtle:  rgba(10, 10, 10, 0.32);
+  --accent:       #3D7A00;        /* deep green — reads on white, same family as the neon lime */
+  --accent-bg:    rgba(61, 122, 0, 0.08);
+  --accent-border:rgba(61, 122, 0, 0.22);
 }
 
 /* scroll-behavior handled by Lenis */
@@ -78,6 +78,95 @@ body::before {
   opacity: 0.06;
   mix-blend-mode: multiply;
 }
+
+/* =============================================
+   AMBIENT COLOR BLOBS
+   Two large, blurred radial gradients fixed to
+   the viewport — one lime-green (accent), one
+   warm orange (complementary). They drift slowly
+   and give the grain something real to refract.
+   ============================================= */
+.ambient {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.ambient-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  will-change: transform;
+}
+
+.ambient-blob--1 {
+  width: 640px;
+  height: 640px;
+  top: -80px;
+  right: -120px;
+  background: radial-gradient(circle, var(--accent), transparent 60%);
+  opacity: 0.17;
+  animation: blob-drift-1 22s ease-in-out infinite alternate;
+}
+
+.ambient-blob--2 {
+  width: 500px;
+  height: 500px;
+  bottom: 5%;
+  left: -100px;
+  background: radial-gradient(circle, var(--accent), transparent 60%);
+  opacity: 0.13;
+  animation: blob-drift-2 30s ease-in-out infinite alternate;
+}
+
+[data-theme="light"] .ambient-blob--1 {
+  opacity: 0.28;
+  mix-blend-mode: multiply;
+}
+[data-theme="light"] .ambient-blob--2 {
+  opacity: 0.20;
+  mix-blend-mode: multiply;
+}
+
+@keyframes blob-drift-1 {
+  from { transform: translate(0, 0) scale(1); }
+  to   { transform: translate(-60px, 80px) scale(1.12); }
+}
+@keyframes blob-drift-2 {
+  from { transform: translate(0, 0) scale(1); }
+  to   { transform: translate(80px, -50px) scale(1.08); }
+}
+
+/* =============================================
+   CURSOR-FOLLOW SOFT LIGHT
+   A 600px radial that lazily follows the mouse
+   via a lerp in JS (factor 0.12). Subtle on dark
+   surfaces, hidden on touch devices.
+   ============================================= */
+.cursor-light {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 600px;
+  height: 600px;
+  pointer-events: none;
+  z-index: 1;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(194, 255, 79, 0.09), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  will-change: transform;
+}
+
+body.cursor-active .cursor-light { opacity: 1; }
+
+[data-theme="light"] .cursor-light {
+  background: radial-gradient(circle, rgba(194, 255, 79, 0.12), transparent 60%);
+}
+
+@media (hover: none) { .cursor-light { display: none; } }
 
 /* Scroll progress bar */
 .scroll-progress {
@@ -136,9 +225,9 @@ img { display: block; max-width: 100%; }
 }
 
 [data-theme="light"] .nav {
-  background: rgba(247, 247, 245, 0.75);
+  background: rgba(255, 255, 255, 0.85);
   border-bottom-color: rgba(0, 0, 0, 0.08);
-  box-shadow: 0 1px 0 rgba(255,255,255,0.5) inset, 0 8px 32px rgba(0,0,0,0.06);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.9) inset, 0 4px 24px rgba(0,0,0,0.05);
 }
 
 /* Theme toggle button */
@@ -192,15 +281,26 @@ img { display: block; max-width: 100%; }
 
 
 /* =============================================
-   SECTION BACKGROUNDS — alternating
+   SECTION BACKGROUNDS
+   Dark mode: transparent so ambient blobs show through.
+   Light mode: keep warm alternating layers.
+   Sections get z-index: 1 so they sit above the
+   fixed ambient layer (z-index: 0).
    ============================================= */
-.work            { background: var(--bg-alt); }
-.process-section { background: var(--bg); }
-.about-section   { background: var(--bg-alt); }
-.experience      { background: var(--bg); }
-.tools-section   { background: var(--bg-alt); }
-.testimonials-section { background: var(--bg); }
-.contact-section { background: var(--bg-alt); }
+.work, .process-section, .about-section,
+.experience, .tools-section, .testimonials-section,
+.contact-section {
+  background: transparent;
+  position: relative;
+  z-index: 1;
+}
+.hero { z-index: 1; }
+
+/* sections that didn't have border-top yet */
+.process-section { border-top: 1px solid var(--border); }
+.about-section   { border-top: 1px solid var(--border); }
+
+
 
 /* =============================================
    HERO
@@ -754,12 +854,15 @@ section { padding: 100px 0; }
   padding: 28px 16px;
   margin: 0 -16px;
   border-radius: var(--radius-sm);
-  transition: background 0.2s;
+  transition: background 0.2s, box-shadow 0.2s;
   position: relative;
 }
 
 .exp-item:hover {
-  background: var(--surface);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12);
 }
 
 /* Dot centered on the line — item has margin-left: -16px so we add 16 to compensate */
@@ -790,10 +893,6 @@ section { padding: 100px 0; }
   transform: scale(1.2);
 }
 
-.exp-item:hover {
-  background: var(--surface);
-  border-radius: var(--radius-sm);
-}
 
 .exp-period {
   font-size: 13px;
@@ -998,8 +1097,8 @@ section { padding: 100px 0; }
 
 [data-theme="light"] .contact-title .highlight {
   text-shadow:
-    0 0 18px rgba(200, 82, 26, 0.35),
-    0 0 48px rgba(200, 82, 26, 0.18);
+    0 0 18px rgba(61, 122, 0, 0.40),
+    0 0 48px rgba(61, 122, 0, 0.20);
 }
 
 .contact-sub {
@@ -1386,7 +1485,9 @@ a.contact-info-block:hover .contact-info-value {
 }
 
 .process-item:hover {
-  background: var(--surface);
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
 }
 
 .process-num {
@@ -1703,7 +1804,9 @@ a.contact-info-block:hover .contact-info-value {
 }
 
 .about-langs-item:hover {
-  background: var(--surface);
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
 }
 
 .about-langs-level {
@@ -1785,7 +1888,9 @@ a.contact-info-block:hover .contact-info-value {
 }
 
 .about-edu-item:hover {
-  background: var(--surface);
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
 }
 
 .about-edu-item:hover::after {
@@ -1931,24 +2036,24 @@ a.contact-info-block:hover .contact-info-value {
 
 /* Nav */
 [data-theme="light"] .nav {
-  background: rgba(250, 246, 240, 0.80);
-  border-bottom-color: rgba(120, 80, 40, 0.12);
-  box-shadow: 0 1px 0 rgba(255,255,255,0.6) inset, 0 4px 24px rgba(0,0,0,0.06);
+  background: rgba(255, 255, 255, 0.85);
+  border-bottom-color: rgba(0, 0, 0, 0.08);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.9) inset, 0 4px 24px rgba(0,0,0,0.05);
 }
 
-/* Hero name — warm charcoal shimmer instead of white */
+/* Hero name — clean near-black shimmer on white */
 [data-theme="light"] .hero-name {
   background: linear-gradient(
     110deg,
-    #1a1510 0%,
-    #2e2520 22%,
-    #3a3028 30%,
-    #2a2018 34%,
-    #1c1510 50%,
-    #302820 62%,
-    #3a3028 70%,
-    #1a1510 85%,
-    #2e2520 100%
+    #0a0a0a 0%,
+    #1a1a1a 22%,
+    #2a2a2a 30%,
+    #111111 34%,
+    #0a0a0a 50%,
+    #1f1f1f 62%,
+    #2a2a2a 70%,
+    #0a0a0a 85%,
+    #1a1a1a 100%
   );
   background-size: 280% 100%;
   -webkit-background-clip: text;
@@ -1957,12 +2062,12 @@ a.contact-info-block:hover .contact-info-value {
   filter: none;
 }
 
-/* Hero role pill */
+/* Hero role pill — green gradient border */
 [data-theme="light"] .hero-role {
   color: var(--text);
   background:
     linear-gradient(var(--bg), var(--bg)) padding-box,
-    linear-gradient(90deg, #C8521A, #E8845A, #D4632A, #F09060, #C8521A) border-box;
+    linear-gradient(90deg, #3D7A00, #6AB300, #4D9A00, #80C800, #3D7A00) border-box;
 }
 
 /* Hero ghost button */
@@ -1980,7 +2085,7 @@ a.contact-info-block:hover .contact-info-value {
 [data-theme="light"] .img-light     { display: block; }
 
 [data-theme="light"] .hero-image::before {
-  opacity: 0.45;
+  opacity: 0.30;
 }
 
 /* Tool icons — black instead of white */
@@ -1989,24 +2094,23 @@ a.contact-info-block:hover .contact-info-value {
   filter: brightness(0) opacity(0.65);
 }
 
-/* Project overlay — light & warm in light mode, not a harsh dark box */
+/* Project overlay — frosted white in light mode */
 [data-theme="light"] .project-overlay {
-  background: rgba(250, 246, 240, 0.72);
+  background: rgba(255, 255, 255, 0.72);
   color: var(--text);
   backdrop-filter: blur(6px);
+}
+
+[data-theme="light"] .project-overlay-cta {
+  color: #FFFFFF;
 }
 
 /* =============================================
    RESPONSIVE
    ============================================= */
 @media (max-width: 960px) {
-  .hero-inner {
-    grid-template-columns: 1fr;
-    gap: 48px;
-  }
-
+  .hero-inner { grid-template-columns: 1fr; gap: 48px; }
   .hero-image { display: none; }
-
   .projects-grid { grid-template-columns: 1fr 1fr; }
 
   /* Experience — stacked, timeline runs along the left edge */
@@ -2052,6 +2156,59 @@ a.contact-info-block:hover .contact-info-value {
   .testimonials-layout { grid-template-columns: 1fr; gap: 36px; }
   .testimonials-layout .section-header { margin-bottom: 0; }
   .testimonial-card { max-width: 100%; }
+}
+
+/* =============================================
+   HERO ENTRANCE ANIMATION
+   Elements start hidden + shifted down, then
+   stagger in when body.loaded fires (~60 ms).
+   The transition-delay creates the cascade
+   effect: badge → name → role → bio → stats → CTA
+   ============================================= */
+.hero-badge,
+.hero-name,
+.hero-role,
+.hero-bio,
+.hero-stats,
+.hero-cta {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity  0.75s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* hero-scroll: override the default opacity: 0.7 set above */
+.hero-scroll { opacity: 0; }
+
+body.loaded .hero-badge  { opacity: 1; transform: none; transition-delay: 0.00s; }
+body.loaded .hero-name   { opacity: 1; transform: none; transition-delay: 0.10s; }
+body.loaded .hero-role   { opacity: 1; transform: none; transition-delay: 0.18s; }
+body.loaded .hero-bio    { opacity: 1; transform: none; transition-delay: 0.26s; }
+body.loaded .hero-stats  { opacity: 1; transform: none; transition-delay: 0.34s; }
+body.loaded .hero-cta    { opacity: 1; transform: none; transition-delay: 0.42s; }
+body.loaded .hero-scroll { opacity: 0.7; transition-delay: 0.55s; }
+
+/* Light mode glass hovers — warm frosted against the cream bg */
+[data-theme="light"] .process-item:hover,
+[data-theme="light"] .exp-item:hover,
+[data-theme="light"] .about-langs-item:hover,
+[data-theme="light"] .about-edu-item:hover {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.10);
+}
+
+/* Reduced motion: skip all animations */
+@media (prefers-reduced-motion: reduce) {
+  .ambient-blob { animation: none !important; }
+  .hero-badge, .hero-name, .hero-role, .hero-bio,
+  .hero-stats, .hero-cta, .hero-scroll {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
 }
 
 @media (max-width: 600px) {

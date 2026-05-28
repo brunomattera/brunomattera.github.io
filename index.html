@@ -20,6 +20,14 @@
 </head>
 <body>
 
+  <!-- Ambient color blobs — give depth to the dark canvas -->
+  <div class="ambient" aria-hidden="true">
+    <div class="ambient-blob ambient-blob--1"></div>
+    <div class="ambient-blob ambient-blob--2"></div>
+  </div>
+  <!-- Cursor-follow soft light -->
+  <div class="cursor-light" aria-hidden="true"></div>
+
   <div class="scroll-progress" id="scrollProgress"></div>
 
   <nav class="nav">
@@ -845,13 +853,11 @@
       }
     });
 
-
     // Hero image — 3D tilt on hover
     (function () {
       var card = document.querySelector('.hero-image');
       if (!card) return;
       var MAX = 10;
-
       card.addEventListener('mousemove', function (e) {
         var r  = card.getBoundingClientRect();
         var x  = e.clientX - r.left;
@@ -859,13 +865,11 @@
         var rx = -((y - r.height / 2) / (r.height / 2)) * MAX;
         var ry =  ((x - r.width  / 2) / (r.width  / 2)) * MAX;
         card.style.transition = 'transform 0.08s ease';
-        card.style.transform  =
-          'perspective(900px) rotateX(' + rx + 'deg) rotateY(' + ry + 'deg) scale3d(1.02,1.02,1.02)';
+        card.style.transform  = 'perspective(900px) rotateX(' + rx + 'deg) rotateY(' + ry + 'deg) scale3d(1.02,1.02,1.02)';
         card.style.setProperty('--sheen-x', (x / r.width  * 100) + '%');
         card.style.setProperty('--sheen-y', (y / r.height * 100) + '%');
         card.classList.add('is-tilting');
       });
-
       card.addEventListener('mouseleave', function () {
         card.style.transition = 'transform 0.7s cubic-bezier(0.23,1,0.32,1)';
         card.style.transform  = 'perspective(900px) rotateX(0deg) rotateY(0deg) scale3d(1,1,1)';
@@ -926,7 +930,38 @@
     })();
   </script>
   <script>
-    // Scroll progress bar
+    // ── Hero entrance: add body.loaded to trigger entrance animation ──
+    (function () {
+      function activate() { document.body.classList.add('loaded'); }
+      setTimeout(activate, 60);
+      window.addEventListener('load', function () { requestAnimationFrame(activate); });
+    })();
+
+    // ── Cursor-follow soft light ──
+    (function () {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      if (!window.matchMedia('(hover: hover)').matches) return;
+      var light = document.querySelector('.cursor-light');
+      if (!light) return;
+      var tx = window.innerWidth / 2, ty = window.innerHeight / 2;
+      var cx = tx, cy = ty;
+      document.addEventListener('mousemove', function (e) {
+        tx = e.clientX; ty = e.clientY;
+        document.body.classList.add('cursor-active');
+      }, { passive: true });
+      document.addEventListener('mouseleave', function () {
+        document.body.classList.remove('cursor-active');
+      });
+      (function tick() {
+        cx += (tx - cx) * 0.12;
+        cy += (ty - cy) * 0.12;
+        light.style.transform = 'translate(' + cx + 'px,' + cy + 'px) translate(-50%,-50%)';
+        requestAnimationFrame(tick);
+      })();
+    })();
+  </script>
+  <script>
+    // ── Scroll progress bar ──
     (function () {
       var bar = document.getElementById('scrollProgress');
       if (!bar) return;
