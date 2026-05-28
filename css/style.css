@@ -2105,52 +2105,6 @@ a.contact-info-block:hover .contact-info-value {
   color: #FFFFFF;
 }
 
-/* ── Themed cards — fixed palette regardless of light/dark mode ── */
-
-/* 10Pearls: always dark */
-.project-card--dark {
-  --surface:      #0F0F0F;
-  --surface-2:    #1A1A1A;
-  --border:       rgba(255, 255, 255, 0.08);
-  --border-hover: rgba(255, 255, 255, 0.18);
-  --text:         #FFFFFF;
-  --text-muted:   rgba(255, 255, 255, 0.54);
-  --accent:       #C2FF4F;
-  --accent-bg:    rgba(194, 255, 79, 0.08);
-  background: #0F0F0F;
-  border-color: rgba(255, 255, 255, 0.08);
-}
-.project-card--dark .project-overlay,
-[data-theme="light"] .project-card--dark .project-overlay {
-  background: rgba(0, 0, 0, 0.60);
-  backdrop-filter: blur(3px);
-}
-[data-theme="light"] .project-card--dark .project-overlay-cta {
-  color: #0A0A0A;
-}
-
-/* Propelus: always purple */
-.project-card--purple {
-  --surface:      #130D24;
-  --surface-2:    #1E1535;
-  --border:       rgba(139, 92, 246, 0.18);
-  --border-hover: rgba(139, 92, 246, 0.35);
-  --text:         #FFFFFF;
-  --text-muted:   rgba(255, 255, 255, 0.54);
-  --accent:       #8B5CF6;
-  --accent-bg:    rgba(139, 92, 246, 0.12);
-  background: #130D24;
-  border-color: rgba(139, 92, 246, 0.18);
-}
-.project-card--purple .project-overlay,
-[data-theme="light"] .project-card--purple .project-overlay {
-  background: rgba(19, 13, 36, 0.75);
-  backdrop-filter: blur(3px);
-}
-.project-card--purple .project-overlay-cta,
-[data-theme="light"] .project-card--purple .project-overlay-cta {
-  color: #FFFFFF;
-}
 
 /* =============================================
    RESPONSIVE
