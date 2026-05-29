@@ -815,7 +815,7 @@ body {
   .cs-about-text .cs-body { max-width: 100%; }
 
   .cs-section { padding: 56px 0; }
-  .cs-problem-card { flex-direction: column; padding: 24px; gap: 14px; }
+  .cs-problem-card { padding: 24px; }
   .cs-steps { grid-template-columns: 1fr; }
 
   .pr-client-stats { grid-template-columns: 1fr 1fr; gap: 10px; }
