@@ -1,4 +1,4 @@
-/* =============================================
+﻿/* =============================================
    FLEX CASE STUDY — Light theme
    Brand green: #4D9030
    Brand navy: #1C2F68
@@ -99,8 +99,8 @@
 .cs-heading {
   font-family: var(--font-head);
   font-size: clamp(30px, 4vw, 52px);
-  font-weight: 800;
-  letter-spacing: -0.03em;
+  font-weight: 400;
+  letter-spacing: 0.01em;
   line-height: 1.05;
   color: var(--cs-text);
   margin-bottom: 18px;
@@ -121,7 +121,13 @@
 
 /* ── OVERVIEW ── */
 .cs-about-text {
-  margin-bottom: 32px;
+  margin-bottom: 48px;
+}
+.cs-about-text .cs-body {
+  font-size: 14px;
+  color: var(--cs-muted);
+  margin-top: 24px;
+  max-width: 760px;
 }
 
 .cs-about-text .cs-heading { margin-bottom: 12px; }
@@ -153,8 +159,8 @@
 
 .cs-card-title {
   font-family: var(--font-head);
-  font-size: 16px;
-  font-weight: 700;
+  font-size: 20px;
+  font-weight: 400;
   color: #FFFFFF;
   margin-bottom: 8px;
 }
@@ -188,7 +194,19 @@
   border-radius: var(--radius-lg);
   padding: 28px;
   display: flex;
-  flex-direction: column;
+  gap: 18px;
+}
+
+.cs-solution-card .cs-solution-icon {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  color: var(--flex-green);
+}
+.cs-solution-card .cs-solution-icon svg { width: 36px; height: 36px; }
+
+.cs-solution-card .cs-card-title {
+  color: #1A1A1A;
 }
 
 .cs-solution-tag {
@@ -207,9 +225,9 @@
 }
 
 .cs-solution-card .cs-card-body {
-  color: rgba(0,0,0,0.65);
+  color: rgba(0, 0, 0, 0.65);
   margin-bottom: 0;
-  font-size: 15px;
+  font-size: 14.5px;
   line-height: 1.75;
 }
 
@@ -233,7 +251,7 @@
   display: block;
   font-family: var(--font-head);
   font-size: 36px;
-  font-weight: 800;
+  font-weight: 400;
   color: var(--flex-green);
   line-height: 1;
   margin-bottom: 16px;
@@ -243,12 +261,11 @@
 
 .cs-step-title {
   font-family: var(--font-head);
-  font-size: 13px;
-  font-weight: 700;
+  font-size: 14px;
+  font-weight: 400;
   color: var(--cs-text);
   margin-bottom: 10px;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.04em;
 }
 
 .cs-step--active .cs-step-title { color: #FFFFFF; }
@@ -295,14 +312,16 @@
 
 /* Role callout */
 .cs-role-callout {
-  font-size: 17px;
-  font-weight: 500;
-  line-height: 1.6;
+  font-family: var(--font-head);
+  font-size: clamp(18px, 2vw, 22px);
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  line-height: 1.5;
   color: var(--cs-text);
   border-left: 3px solid var(--flex-green);
   padding-left: 20px;
-  margin-bottom: 40px;
-  max-width: 720px;
+  margin-bottom: 28px;
+  max-width: 780px;
 }
 
 /* ── STYLE GUIDE ── */
@@ -358,7 +377,7 @@
   font-weight: 700;
   line-height: 1;
   color: var(--cs-text);
-  letter-spacing: -0.02em;
+  letter-spacing: 0.02em;
 }
 
 .cs-type-weights {
@@ -385,7 +404,7 @@
   align-items: center;
 }
 
-.cs-visual-split-text .cs-heading { margin-bottom: 16px; }
+.cs-visual-split-text .cs-heading { margin-bottom: 16px; font-size: clamp(24px, 3vw, 40px); }
 .cs-visual-split-text .cs-body    { margin-bottom: 0; }
 
 .cs-visual-split-img {
@@ -435,10 +454,10 @@
 .cs-screen-title {
   font-family: var(--font-head);
   font-size: clamp(20px, 2.5vw, 28px);
-  font-weight: 700;
+  font-weight: 400;
   color: var(--cs-text);
   margin-bottom: 14px;
-  letter-spacing: -0.02em;
+  letter-spacing: 0.02em;
   line-height: 1.15;
 }
 
@@ -530,8 +549,8 @@
 .cs-metric-num {
   font-family: var(--font-head);
   font-size: clamp(40px, 5vw, 64px);
-  font-weight: 800;
-  letter-spacing: -0.03em;
+  font-weight: 400;
+  letter-spacing: 0.01em;
   line-height: 1;
   color: var(--flex-green);
 }
@@ -551,7 +570,7 @@
 .cs-benchmark-title {
   font-family: var(--font-head);
   font-size: 18px;
-  font-weight: 700;
+  font-weight: 400;
   color: var(--cs-text);
   margin-bottom: 20px;
 }
@@ -673,4 +692,10 @@
   .cs-table td             { display: flex; justify-content: space-between; align-items: center; padding: 10px 16px; border-bottom: 1px solid var(--cs-border); font-size: 13px; }
   .cs-table tr td:last-child { border-bottom: none; }
   .cs-table td::before     { content: attr(data-label); font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--cs-subtle); flex-shrink: 0; margin-right: 16px; }
+}
+
+@media (max-width: 600px) {
+  .cs-about-text { grid-template-columns: 1fr; }
+  .cs-about-text .cs-heading, .cs-about-text .cs-role-callout, .cs-about-text .cs-body { grid-column: 1; grid-row: auto; }
+  .cs-about-text .cs-body { max-width: 100%; }
 }

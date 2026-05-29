@@ -1,3 +1,49 @@
+﻿/* =============================================
+   CUSTOM FONTS
+   ============================================= */
+
+@font-face {
+  font-family: 'Advercase';
+  src: url('../fonts/Advercase-Regular.woff2') format('woff2'),
+       url('../fonts/Advercase-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Advercase';
+  src: url('../fonts/Advercase-Bold.woff2') format('woff2'),
+       url('../fonts/Advercase-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('../fonts/SFPRODISPLAYREGULAR.OTF') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('../fonts/SFPRODISPLAYMEDIUM.OTF') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('../fonts/SFPRODISPLAYBOLD.OTF') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* =============================================
    RESET & BASE
    ============================================= */
@@ -25,8 +71,10 @@
   --radius-lg:    20px;
   --max-w:        1200px;
   --nav-h:        72px;
-  --font-head:    'Syne', sans-serif;
-  --font-body:    'DM Sans', sans-serif;
+  --font-display: 'Advercase', Georgia, serif;
+  --font-head:    'Advercase', Georgia, serif;
+  --font-serif:   'Times New Roman', Times, serif;
+  --font-body:    'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 [data-theme="light"] {
@@ -57,8 +105,10 @@ body {
   font-family: var(--font-body);
   font-size: 16px;
   line-height: 1.6;
+  letter-spacing: 0.012em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
   position: relative;
 }
 
@@ -260,8 +310,8 @@ img { display: block; max-width: 100%; }
 .nav-logo {
   font-family: var(--font-head);
   font-size: 18px;
-  font-weight: 700;
-  letter-spacing: -0.02em;
+  font-weight: 400;
+  letter-spacing: 0.03em;
 }
 
 .nav-links {
@@ -427,11 +477,12 @@ img { display: block; max-width: 100%; }
 }
 
 .hero-name {
-  font-family: var(--font-head);
+  font-family: var(--font-display);
   font-size: clamp(42px, 5.5vw, 72px);
-  font-weight: 800;
-  letter-spacing: -0.04em;
-  line-height: 0.95;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1.1;
+  padding-top: 0.08em;
   margin-bottom: 14px;
   /* Subtle premium shimmer */
   background: linear-gradient(
@@ -461,13 +512,13 @@ img { display: block; max-width: 100%; }
 
 .hero-role {
   display: inline-block;
-  font-family: var(--font-head);
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.10em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.92);
-  padding: 8px 20px;
+  color: var(--text);
+  padding: 9px 20px;
   border-radius: 100px;
   margin-bottom: 28px;
   /* Holographic animated border */
@@ -528,8 +579,8 @@ img { display: block; max-width: 100%; }
 .stat-num {
   font-family: var(--font-head);
   font-size: 40px;
-  font-weight: 700;
-  letter-spacing: -0.04em;
+  font-weight: 400;
+  letter-spacing: normal;
   line-height: 1;
   display: flex;
   align-items: baseline;
@@ -677,8 +728,8 @@ section { padding: 100px 0; }
 .section-title {
   font-family: var(--font-head);
   font-size: clamp(36px, 4.5vw, 56px);
-  font-weight: 700;
-  letter-spacing: -0.03em;
+  font-weight: 400;
+  letter-spacing: normal;
   line-height: 1.05;
 }
 
@@ -794,8 +845,8 @@ section { padding: 100px 0; }
 .project-name {
   font-family: var(--font-head);
   font-size: 18px;
-  font-weight: 700;
-  letter-spacing: -0.02em;
+  font-weight: 400;
+  letter-spacing: 0.04em;
   margin-bottom: 3px;
 }
 
@@ -913,8 +964,8 @@ section { padding: 100px 0; }
 .exp-role {
   font-family: var(--font-head);
   font-size: 18px;
-  font-weight: 700;
-  letter-spacing: -0.02em;
+  font-weight: 400;
+  letter-spacing: 0.04em;
 }
 
 .exp-company {
@@ -1079,8 +1130,8 @@ section { padding: 100px 0; }
 .contact-title {
   font-family: var(--font-head);
   font-size: clamp(48px, 8vw, 96px);
-  font-weight: 800;
-  letter-spacing: -0.045em;
+  font-weight: 400;
+  letter-spacing: normal;
   line-height: 0.95;
   margin: 16px 0 24px;
 }
@@ -1353,6 +1404,8 @@ a.contact-info-block:hover .contact-info-value {
   border: 1px solid var(--border);
   padding: 4px 12px;
   border-radius: 100px;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .project-hero-tags {
@@ -1372,8 +1425,8 @@ a.contact-info-block:hover .contact-info-value {
 .project-hero-title {
   font-family: var(--font-head);
   font-size: clamp(44px, 7vw, 88px);
-  font-weight: 800;
-  letter-spacing: -0.04em;
+  font-weight: 400;
+  letter-spacing: normal;
   line-height: 1.0;
   margin-bottom: 16px;
 }
@@ -1493,9 +1546,9 @@ a.contact-info-block:hover .contact-info-value {
 .process-num {
   font-family: var(--font-head);
   font-size: 44px;
-  font-weight: 800;
+  font-weight: 400;
   color: var(--accent);
-  letter-spacing: -0.02em;
+  letter-spacing: 0.08em;
   line-height: 1;
   opacity: 0.95;
   position: relative;
@@ -1512,8 +1565,8 @@ a.contact-info-block:hover .contact-info-value {
 .process-title {
   font-family: var(--font-head);
   font-size: 18px;
-  font-weight: 700;
-  letter-spacing: -0.02em;
+  font-weight: 400;
+  letter-spacing: 0.04em;
 }
 
 .process-desc {
@@ -1565,6 +1618,10 @@ a.contact-info-block:hover .contact-info-value {
   margin-bottom: 0;
 }
 
+.testimonials-layout .section-title {
+  font-size: clamp(26px, 2.6vw, 38px);
+}
+
 .testimonials-wrap {
   min-width: 0;
   position: relative;
@@ -1606,6 +1663,29 @@ a.contact-info-block:hover .contact-info-value {
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.45s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Corner glow inside the card */
+.testimonial-card::before {
+  content: '';
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 260px;
+  height: 260px;
+  background: radial-gradient(circle, rgba(194, 255, 79, 0.18), transparent 65%);
+  filter: blur(48px);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Keep card content above the glow */
+.testimonial-card > * {
+  position: relative;
+  z-index: 1;
 }
 
 .testimonial-card.is-active {
@@ -1614,9 +1694,9 @@ a.contact-info-block:hover .contact-info-value {
 }
 
 .testimonial-quote-mark {
-  font-family: 'Syne', sans-serif;
+  font-family: var(--font-head);
   font-size: 80px;
-  font-weight: 800;
+  font-weight: 400;
   line-height: 1;
   color: var(--accent);
   flex-shrink: 0;
@@ -1745,8 +1825,8 @@ a.contact-info-block:hover .contact-info-value {
 .about-headline {
   font-family: var(--font-head);
   font-size: clamp(36px, 4.5vw, 54px);
-  font-weight: 700;
-  letter-spacing: -0.03em;
+  font-weight: 400;
+  letter-spacing: normal;
   line-height: 1.05;
   margin: 12px 0 28px;
 }
@@ -1953,8 +2033,8 @@ a.contact-info-block:hover .contact-info-value {
 .about-dj-name {
   font-family: var(--font-head);
   font-size: 20px;
-  font-weight: 700;
-  letter-spacing: -0.02em;
+  font-weight: 400;
+  letter-spacing: 0.04em;
   line-height: 1;
 }
 
@@ -2062,7 +2142,7 @@ a.contact-info-block:hover .contact-info-value {
   filter: none;
 }
 
-/* Hero role pill — green gradient border */
+/* Hero role pill — green gradient border in light mode */
 [data-theme="light"] .hero-role {
   color: var(--text);
   background:
@@ -2185,10 +2265,14 @@ a.contact-info-block:hover .contact-info-value {
 body.loaded .hero-badge  { opacity: 1; transform: none; transition-delay: 0.00s; }
 body.loaded .hero-name   { opacity: 1; transform: none; transition-delay: 0.10s; }
 body.loaded .hero-role   { opacity: 1; transform: none; transition-delay: 0.18s; }
-body.loaded .hero-bio    { opacity: 1; transform: none; transition-delay: 0.26s; }
-body.loaded .hero-stats  { opacity: 1; transform: none; transition-delay: 0.34s; }
-body.loaded .hero-cta    { opacity: 1; transform: none; transition-delay: 0.42s; }
-body.loaded .hero-scroll { opacity: 0.7; transition-delay: 0.55s; }
+body.loaded .hero-stats  { opacity: 1; transform: none; transition-delay: 0.26s; }
+body.loaded .hero-cta    { opacity: 1; transform: none; transition-delay: 0.34s; }
+body.loaded .hero-scroll { opacity: 0.7; transition-delay: 0.46s; }
+
+/* Testimonial card glow — lighter in light mode */
+[data-theme="light"] .testimonial-card::before {
+  background: radial-gradient(circle, rgba(194, 255, 79, 0.22), transparent 65%);
+}
 
 /* Light mode glass hovers — warm frosted against the cream bg */
 [data-theme="light"] .process-item:hover,
@@ -2218,6 +2302,16 @@ body.loaded .hero-scroll { opacity: 0.7; transition-delay: 0.55s; }
   .hero {
     padding-top: calc(var(--nav-h) + 12px);
     padding-bottom: 60px;
+  }
+
+  /* Hero name — bump size on mobile so it reads as the headline */
+  .hero-name { font-size: clamp(48px, 14vw, 64px); }
+
+  /* Role label — slightly smaller, never overflow */
+  .hero-role {
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    padding: 8px 16px;
   }
 
   .projects-grid { grid-template-columns: 1fr; }
