@@ -497,18 +497,35 @@ img { display: block; max-width: 100%; }
   padding: 9px 20px;
   border-radius: 100px;
   margin-bottom: 28px;
-  /* Holographic animated border */
-  border: 1.5px solid transparent;
-  background:
-    linear-gradient(#0A0A0A, #0A0A0A) padding-box,
-    linear-gradient(90deg, #C2FF4F, #E8FF9A, #86E82A, #DEFF7A, #C2FF4F) border-box;
-  background-size: auto, 300% 100%;
+  background: transparent;
+  border: none;
+  position: relative;
+}
+
+/* Gradient border ring — center is transparent */
+.hero-role::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 100px;
+  padding: 1.5px;
+  background: linear-gradient(90deg, #C2FF4F, #E8FF9A, #86E82A, #DEFF7A, #C2FF4F);
+  background-size: 300% 100%;
   animation: holo-border 4s linear infinite;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
 }
 
 @keyframes holo-border {
-  0%   { background-position: auto, 0% 50%; }
-  100% { background-position: auto, 300% 50%; }
+  0%   { background-position: 0% 50%; }
+  100% { background-position: 300% 50%; }
 }
 
 .hero-cta {
@@ -2118,12 +2135,12 @@ a.contact-info-block:hover .contact-info-value {
   filter: none;
 }
 
-/* Hero role pill — green gradient border in light mode */
-[data-theme="light"] .hero-role {
-  color: var(--text);
-  background:
-    linear-gradient(var(--bg), var(--bg)) padding-box,
-    linear-gradient(90deg, #3D7A00, #6AB300, #4D9A00, #80C800, #3D7A00) border-box;
+/* Hero role pill — dark green gradient border in light mode */
+[data-theme="light"] .hero-role { color: var(--text); }
+
+[data-theme="light"] .hero-role::before {
+  background: linear-gradient(90deg, #3D7A00, #6AB300, #4D9A00, #80C800, #3D7A00);
+  background-size: 300% 100%;
 }
 
 /* Hero ghost button */
