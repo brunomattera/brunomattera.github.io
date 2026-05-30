@@ -336,6 +336,7 @@ img { display: block; max-width: 100%; }
   padding-top: calc(var(--nav-h) + 80px);
   padding-bottom: 120px;
   min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -2265,7 +2266,8 @@ body.loaded .hero-scroll { opacity: 0.7; transition-delay: 0.46s; }
 
   .hero {
     padding-top: calc(var(--nav-h) + 12px);
-    padding-bottom: 60px;
+    padding-bottom: 80px;
+    min-height: 100svh;
   }
 
   /* Hero name — bump size on mobile so it reads as the headline */
