@@ -496,34 +496,7 @@ img { display: block; max-width: 100%; }
   border-radius: 100px;
   margin-bottom: 28px;
   background: transparent;
-  border: none;
-  position: relative;
-}
-
-/* Gradient border ring — center is transparent */
-.hero-role::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: 100px;
-  padding: 1.5px;
-  background: linear-gradient(90deg, #C2FF4F, #E8FF9A, #86E82A, #DEFF7A, #C2FF4F);
-  background-size: 300% 100%;
-  animation: holo-border 4s linear infinite;
-  -webkit-mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  mask-composite: exclude;
-  pointer-events: none;
-}
-
-@keyframes holo-border {
-  0%   { background-position: 0% 50%; }
-  100% { background-position: 300% 50%; }
+  border: 1.5px solid var(--accent);
 }
 
 .hero-cta {
@@ -2106,12 +2079,10 @@ a.contact-info-block:hover .contact-info-value {
   filter: none;
 }
 
-/* Hero role pill — dark green gradient border in light mode */
-[data-theme="light"] .hero-role { color: var(--text); }
-
-[data-theme="light"] .hero-role::before {
-  background: linear-gradient(90deg, #3D7A00, #6AB300, #4D9A00, #80C800, #3D7A00);
-  background-size: 300% 100%;
+/* Hero role pill — dark green border in light mode */
+[data-theme="light"] .hero-role {
+  color: var(--text);
+  border-color: var(--accent);
 }
 
 /* Hero ghost button */
