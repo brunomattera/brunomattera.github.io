@@ -414,9 +414,6 @@ img { display: block; max-width: 100%; }
   50%       { transform: translateY(5px); }
 }
 
-@media (max-width: 600px) {
-  .hero-scroll { display: none; }
-}
 
 .hero-inner {
   display: grid;
@@ -1044,7 +1041,6 @@ section { padding: 100px 0; }
 .tool-inline:hover {
   border-color: var(--accent);
   background: var(--accent-bg);
-  transform: translateY(-1px);
 }
 
 .tool-inline img,
@@ -1620,20 +1616,6 @@ a.contact-info-block:hover .contact-info-value {
   position: relative;
 }
 
-/* Soft accent glow behind the active card */
-.testimonials-wrap::after {
-  content: '';
-  position: absolute;
-  width: 70%;
-  height: 70%;
-  background: radial-gradient(circle, var(--accent) 0%, transparent 65%);
-  filter: blur(120px);
-  opacity: 0.12;
-  top: 15%;
-  left: 15%;
-  pointer-events: none;
-  z-index: 0;
-}
 
 .testimonials-carousel { position: relative; z-index: 1; }
 
@@ -1646,8 +1628,10 @@ a.contact-info-block:hover .contact-info-value {
   grid-area: 1 / 1;
   max-width: 100%;
   padding: 36px 40px;
-  background: var(--surface);
-  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: var(--radius);
   display: flex;
   flex-direction: column;
@@ -1660,20 +1644,6 @@ a.contact-info-block:hover .contact-info-value {
   overflow: hidden;
 }
 
-/* Corner glow inside the card */
-.testimonial-card::before {
-  content: '';
-  position: absolute;
-  top: -60px;
-  right: -60px;
-  width: 260px;
-  height: 260px;
-  background: radial-gradient(circle, rgba(194, 255, 79, 0.18), transparent 65%);
-  filter: blur(48px);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 0;
-}
 
 /* Keep card content above the glow */
 .testimonial-card > * {
@@ -2262,9 +2232,10 @@ body.loaded .hero-stats  { opacity: 1; transform: none; transition-delay: 0.26s;
 body.loaded .hero-cta    { opacity: 1; transform: none; transition-delay: 0.34s; }
 body.loaded .hero-scroll { opacity: 0.7; transition-delay: 0.46s; }
 
-/* Testimonial card glow — lighter in light mode */
-[data-theme="light"] .testimonial-card::before {
-  background: radial-gradient(circle, rgba(194, 255, 79, 0.22), transparent 65%);
+/* Testimonial card — more opaque in light mode for legibility */
+[data-theme="light"] .testimonial-card {
+  background: rgba(255, 255, 255, 0.55);
+  border-color: rgba(0, 0, 0, 0.07);
 }
 
 /* Light mode glass hovers — warm frosted against the cream bg */
