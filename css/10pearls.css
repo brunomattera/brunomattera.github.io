@@ -2,6 +2,13 @@
    10PEARLS · INTERNAL PRODUCTS — case styles
    ============================================= */
 
+/* 10Pearls brand accent override — higher specificity than :root in style.css */
+html[data-theme="dark"] {
+  --accent:        #6366F1;
+  --accent-bg:     rgba(99, 102, 241, 0.08);
+  --accent-border: rgba(99, 102, 241, 0.2);
+}
+
 /* Shared case-study primitives — themed via global vars so it works in light/dark */
 .cs-section {
   padding: 88px 0;
@@ -225,8 +232,8 @@
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 70% 55% at 22% 25%, rgba(212,255,39,0.16), transparent 60%),
-    radial-gradient(ellipse 60% 50% at 85% 80%, rgba(212,255,39,0.10), transparent 60%);
+    radial-gradient(ellipse 70% 55% at 22% 25%, rgba(99,102,241,0.16), transparent 60%),
+    radial-gradient(ellipse 60% 50% at 85% 80%, rgba(99,102,241,0.10), transparent 60%);
   z-index: 0;
 }
 
@@ -269,9 +276,9 @@
   gap: 14px;
   padding: 14px 20px;
   margin-top: auto;
-  background: linear-gradient(90deg, transparent, rgba(212, 255, 39, 0.14), transparent);
-  border-top: 1px solid rgba(212, 255, 39, 0.30);
-  border-bottom: 1px solid rgba(212, 255, 39, 0.16);
+  background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.14), transparent);
+  border-top: 1px solid rgba(99, 102, 241, 0.30);
+  border-bottom: 1px solid rgba(99, 102, 241, 0.16);
   position: relative;
   z-index: 3;
 }
