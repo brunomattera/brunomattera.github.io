@@ -2,11 +2,29 @@
    10PEARLS · INTERNAL PRODUCTS — case styles
    ============================================= */
 
-/* 10Pearls brand accent override — higher specificity than :root in style.css */
+/* 10Pearls brand accent override */
+html[data-theme="light"],
 html[data-theme="dark"] {
   --accent:        #6366F1;
   --accent-bg:     rgba(99, 102, 241, 0.08);
   --accent-border: rgba(99, 102, 241, 0.2);
+}
+
+/* Light mode: lighten hardcoded dark hero elements */
+html[data-theme="light"] .tp-hero-composite {
+  background: #EEEFFE;
+}
+html[data-theme="light"] .tp-card {
+  background: #fff;
+  box-shadow:
+    0 24px 40px rgba(99, 102, 241, 0.10),
+    0 0 0 1px rgba(99, 102, 241, 0.10);
+}
+html[data-theme="light"] .tp-wc-stack-img {
+  background: #F0EFFE;
+}
+html[data-theme="light"] .tp-meta-stat {
+  color: rgba(10, 10, 10, 0.70);
 }
 
 /* Shared case-study primitives — themed via global vars so it works in light/dark */
