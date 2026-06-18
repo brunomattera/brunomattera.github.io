@@ -3,8 +3,7 @@
    ============================================= */
 
 /* 10Pearls brand accent override */
-html[data-theme="light"],
-html[data-theme="dark"] {
+:root {
   --accent:        #6366F1;
   --accent-bg:     rgba(99, 102, 241, 0.08);
   --accent-border: rgba(99, 102, 241, 0.2);

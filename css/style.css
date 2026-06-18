@@ -30,6 +30,7 @@
 }
 
 :root {
+  color-scheme: dark;
   --bg:           #0A0A0A;
   --bg-alt:       #111111;
   --surface:      #141414;
@@ -54,6 +55,7 @@
 }
 
 [data-theme="light"] {
+  color-scheme: light;
   --bg:           #FFFFFF;
   --bg-alt:       #F4F4F6;
   --surface:      #FFFFFF;
@@ -310,12 +312,12 @@ img { display: block; max-width: 100%; }
   display: block;
   transition: color 0.3s, opacity 0.3s;
 }
-/* Dark mode: moon (left slot) is on the thumb */
-.toggle-slot:first-of-type svg { color: #0A0A0A; opacity: 1; }
-.toggle-slot:last-of-type  svg { color: var(--text-muted); opacity: 0.45; }
-/* Light mode: sun (right slot) is on the thumb */
-[data-theme="light"] .toggle-slot:first-of-type svg { color: var(--text-muted); opacity: 0.45; }
-[data-theme="light"] .toggle-slot:last-of-type  svg { color: #fff; opacity: 1; }
+/* Dark mode: moon is on the thumb */
+.toggle-slot .icon-moon { color: #0A0A0A; opacity: 1; }
+.toggle-slot .icon-sun  { color: var(--text-muted); opacity: 0.45; }
+/* Light mode: sun is on the thumb */
+[data-theme="light"] .toggle-slot .icon-moon { color: var(--text-muted); opacity: 0.45; }
+[data-theme="light"] .toggle-slot .icon-sun  { color: #fff; opacity: 1; }
 
 .nav-inner {
   display: flex;
