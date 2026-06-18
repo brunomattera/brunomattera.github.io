@@ -1512,6 +1512,45 @@ a.contact-info-block:hover .contact-info-value {
   align-items: center;
 }
 
+/* Floating "Next case" pill — reuses .project-nav-section so any
+   per-case brand color override on .btn-primary applies here too. */
+.project-nav-section.next-case-float {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 90;
+  width: auto;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: transparent;
+  display: inline-flex;
+  opacity: 0;
+  transform: translateY(14px);
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.project-nav-section.next-case-float.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.project-nav-section.next-case-float .btn-primary {
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+}
+@media (max-width: 640px) {
+  .project-nav-section.next-case-float {
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+    justify-content: center;
+  }
+  .project-nav-section.next-case-float .btn-primary {
+    width: 100%;
+    text-align: center;
+  }
+}
+
 /* =============================================
    PROCESS
    ============================================= */
