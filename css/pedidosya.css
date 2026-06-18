@@ -23,6 +23,26 @@ body {
 .nav-back  { color: rgba(0,0,0,0.60); }
 .nav-back:hover { color: var(--py-red); }
 
+/* ── PROJECT NAV ── */
+.project-nav-section {
+  border-top-color: rgba(0,0,0,0.08);
+  background: var(--py-red-faint);
+}
+.project-nav-section .btn-ghost {
+  border-color: rgba(0,0,0,0.14);
+  color: rgba(0,0,0,0.50);
+}
+.project-nav-section .btn-ghost:hover {
+  border-color: rgba(0,0,0,0.28);
+  color: #000;
+}
+.project-nav-section .btn-primary {
+  background: var(--py-red);
+  color: #FFFFFF;
+  border: none;
+}
+.project-nav-section .btn-primary:hover { background: var(--py-red-dark); }
+
 .project-nav-section { border-top-color: rgba(0,0,0,0.08); }
 .btn-ghost { border-color: rgba(0,0,0,0.15); color: #111; }
 .btn-ghost:hover { border-color: rgba(0,0,0,0.35); color: #111; }

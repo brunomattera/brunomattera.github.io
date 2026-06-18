@@ -26,6 +26,26 @@
 .nav-back { color: rgba(0,0,0,0.60); }
 .nav-back:hover { color: var(--ab-blue); }
 
+/* ── PROJECT NAV ── */
+.project-nav-section {
+  border-top-color: rgba(0,0,0,0.08);
+  background: var(--ab-blue-faint);
+}
+.project-nav-section .btn-ghost {
+  border-color: rgba(0,0,0,0.14);
+  color: rgba(0,0,0,0.50);
+}
+.project-nav-section .btn-ghost:hover {
+  border-color: rgba(0,0,0,0.28);
+  color: #000;
+}
+.project-nav-section .btn-primary {
+  background: var(--ab-blue);
+  color: #FFFFFF;
+  border: none;
+}
+.project-nav-section .btn-primary:hover { background: var(--ab-accent); }
+
 /* ── HERO ── */
 .project-hero--abitab {
   padding: 0;

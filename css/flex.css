@@ -10,9 +10,29 @@
   background: rgba(255,255,255,0.5);
   border-bottom-color: rgba(0,0,0,0.08);
 }
-.nav-logo { color: var(--flex-navy); }
+.nav-logo { color: var(--flex-green); }
 .nav-back { color: rgba(0,0,0,0.60); } /* 5.74:1 on white ✅ */
-.nav-back:hover { color: var(--flex-navy); }
+.nav-back:hover { color: var(--flex-green); }
+
+/* ── PROJECT NAV ── */
+.project-nav-section {
+  border-top-color: rgba(0,0,0,0.08);
+  background: var(--flex-green-mid);
+}
+.project-nav-section .btn-ghost {
+  border-color: rgba(0,0,0,0.14);
+  color: rgba(0,0,0,0.50);
+}
+.project-nav-section .btn-ghost:hover {
+  border-color: rgba(0,0,0,0.28);
+  color: #000;
+}
+.project-nav-section .btn-primary {
+  background: var(--flex-green);
+  color: #FFFFFF;
+  border: none;
+}
+.project-nav-section .btn-primary:hover { background: #3D7526; }
 
 :root {
   --flex-green:       #4D9030;
