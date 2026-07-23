@@ -651,6 +651,9 @@ img { display: block; max-width: 100%; }
 
 .btn-primary:hover {
   background: var(--accent);
+  color: #0A0A0A;
+}
+[data-theme="light"] .btn-primary:hover {
   color: #fff;
 }
 
