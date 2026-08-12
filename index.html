@@ -80,10 +80,6 @@
           </a>
         </div>
       </div>
-      <div class="hero-image">
-        <img src="images/bruno.png" alt="Bruno Mattera" class="img-dark">
-        <img src="images/bruno-light.png" alt="Bruno Mattera" class="img-light">
-      </div>
     </div>
     <div class="hero-scroll">
       <span>Scroll to explore</span>
@@ -872,30 +868,6 @@
         btn.disabled = false;
       }
     });
-
-    // Hero image — 3D tilt on hover
-    (function () {
-      var card = document.querySelector('.hero-image');
-      if (!card) return;
-      var MAX = 10;
-      card.addEventListener('mousemove', function (e) {
-        var r  = card.getBoundingClientRect();
-        var x  = e.clientX - r.left;
-        var y  = e.clientY - r.top;
-        var rx = -((y - r.height / 2) / (r.height / 2)) * MAX;
-        var ry =  ((x - r.width  / 2) / (r.width  / 2)) * MAX;
-        card.style.transition = 'transform 0.08s ease';
-        card.style.transform  = 'perspective(900px) rotateX(' + rx + 'deg) rotateY(' + ry + 'deg) scale3d(1.02,1.02,1.02)';
-        card.style.setProperty('--sheen-x', (x / r.width  * 100) + '%');
-        card.style.setProperty('--sheen-y', (y / r.height * 100) + '%');
-        card.classList.add('is-tilting');
-      });
-      card.addEventListener('mouseleave', function () {
-        card.style.transition = 'transform 0.7s cubic-bezier(0.23,1,0.32,1)';
-        card.style.transform  = 'perspective(900px) rotateX(0deg) rotateY(0deg) scale3d(1,1,1)';
-        card.classList.remove('is-tilting');
-      });
-    })();
 
     // Experience "View more" toggle
     const expToggle = document.getElementById('expToggle');
