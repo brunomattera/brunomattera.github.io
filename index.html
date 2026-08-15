@@ -14,7 +14,7 @@
     // Already authenticated? Skip the gate entirely.
     (function () {
       if (sessionStorage.getItem('portfolio-auth') === '1') {
-        location.replace(sessionStorage.getItem('portfolio-dest') || '/portfolio.html');
+        location.replace(sessionStorage.getItem('portfolio-dest') || '/portfolio/');
       }
     })();
   </script>
@@ -146,7 +146,7 @@
         sha256(input.value).then(function (hash) {
           if (hash === HASH) {
             sessionStorage.setItem('portfolio-auth', '1');
-            var dest = sessionStorage.getItem('portfolio-dest') || '/portfolio.html';
+            var dest = sessionStorage.getItem('portfolio-dest') || '/portfolio/';
             sessionStorage.removeItem('portfolio-dest');
             location.replace(dest);
           } else {
