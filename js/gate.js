@@ -4,23 +4,40 @@
 
   if (sessionStorage.getItem(SESSION_KEY) === '1') return;
 
+  var ROOT = (function () {
+    var src = (document.currentScript && document.currentScript.src) || '';
+    return src ? src.replace(/js\/gate\.js(\?.*)?$/, '') : '/';
+  })();
+  var LIGHT = false;
+  try { LIGHT = localStorage.getItem('theme') === 'light'; } catch (e) {}
+
   var style = document.createElement('style');
   style.textContent = [
-    '#gate-overlay{position:fixed;inset:0;z-index:9999;background:#0A0A0A;display:flex;align-items:center;justify-content:center;font-family:"Figtree",system-ui,sans-serif;transition:opacity 0.4s ease;}',
-    '.gate-box{display:flex;flex-direction:column;align-items:center;gap:20px;width:100%;max-width:340px;padding:0 24px;}',
-    '.gate-logo{font-size:28px;font-weight:700;color:#C2FF4F;letter-spacing:-0.03em;margin:0;}',
-    '.gate-label{font-size:14px;color:rgba(255,255,255,0.4);margin:0;text-align:center;}',
+    '#gate-overlay{--g-bg:#0C0B12;--g-text:#F6F5FA;--g-muted:rgba(246,245,250,0.55);--g-field:rgba(207,202,236,0.06);--g-border:rgba(207,202,236,0.14);--g-accent:#8277F6;--g-accent2:#53A5E8;--g-btn:#F6F5FA;--g-btn-text:#0C0B12;',
+      'position:fixed;inset:0;z-index:9999;background:var(--g-bg);display:flex;align-items:center;justify-content:center;font-family:"Inter",system-ui,sans-serif;transition:opacity 0.4s ease;overflow:hidden;}',
+    '#gate-overlay.is-light{--g-bg:#FBFAFE;--g-text:#14131C;--g-muted:rgba(20,19,28,0.55);--g-field:#FFFFFF;--g-border:rgba(44,39,72,0.16);--g-accent:#5C51A7;--g-accent2:#4A8FE0;--g-btn:#14131C;--g-btn-text:#FFFFFF;}',
+    '#gate-overlay::before,#gate-overlay::after{content:"";position:absolute;border-radius:50%;filter:blur(110px);pointer-events:none;}',
+    '#gate-overlay::before{width:560px;height:560px;top:-160px;right:-140px;background:radial-gradient(circle,var(--g-accent),transparent 62%);opacity:0.22;}',
+    '#gate-overlay::after{width:480px;height:480px;bottom:-160px;left:-140px;background:radial-gradient(circle,var(--g-accent2),transparent 62%);opacity:0.16;}',
+    '.gate-box{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;width:100%;max-width:360px;padding:0 24px;box-sizing:border-box;}',
+    '.gate-photo{width:104px;height:104px;border-radius:50%;padding:3px;background:linear-gradient(135deg,var(--g-accent2) 0%,var(--g-accent) 55%,rgba(130,119,246,0.15) 100%);box-shadow:0 16px 48px -12px rgba(130,119,246,0.45);margin-bottom:22px;box-sizing:border-box;}',
+    '.gate-photo span{display:block;width:100%;height:100%;border-radius:50%;overflow:hidden;border:3px solid var(--g-bg);box-sizing:border-box;background:var(--g-bg);}',
+    '.gate-photo img{width:100%;height:100%;object-fit:cover;display:block;transform:translate(-4%,7%) scale(1.2);transform-origin:54% 47%;}',
+    '.gate-name{font-family:"Advercase",Georgia,serif;font-size:40px;font-weight:400;line-height:1.05;color:var(--g-text);margin:0 0 8px;text-align:center;}',
+    '.gate-label{font-size:14px;color:var(--g-muted);margin:0 0 26px;text-align:center;}',
     '.gate-form{display:flex;flex-direction:column;gap:10px;width:100%;}',
     '.gate-input-wrap{position:relative;width:100%;}',
-    '.gate-input{width:100%;padding:13px 48px 13px 20px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:100px;color:#fff;font-size:15px;font-family:inherit;outline:none;transition:border-color 0.2s;box-sizing:border-box;}',
-    '.gate-input:focus{border-color:rgba(194,255,79,0.45);}',
+    '.gate-input{width:100%;padding:14px 48px 14px 20px;background:var(--g-field);border:1px solid var(--g-border);border-radius:100px;color:var(--g-text);font-size:15px;font-family:inherit;outline:none;transition:border-color 0.2s,box-shadow 0.2s;box-sizing:border-box;}',
+    '.gate-input::placeholder{color:var(--g-muted);}',
+    '.gate-input:focus{border-color:var(--g-accent);box-shadow:0 0 0 4px rgba(130,119,246,0.15);}',
     '.gate-input.gate-shake{animation:gate-shake 0.4s ease;}',
-    '.gate-eye{position:absolute;right:16px;top:50%;transform:translateY(-50%);background:none;border:none;padding:4px;cursor:pointer;color:rgba(255,255,255,0.35);display:flex;align-items:center;justify-content:center;transition:color 0.2s;}',
-    '.gate-eye:hover{color:rgba(255,255,255,0.75);}',
+    '.gate-eye{position:absolute;right:16px;top:50%;transform:translateY(-50%);background:none;border:none;padding:4px;cursor:pointer;color:var(--g-muted);display:flex;align-items:center;justify-content:center;transition:color 0.2s;}',
+    '.gate-eye:hover{color:var(--g-text);}',
     '@keyframes gate-shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-8px)}40%{transform:translateX(8px)}60%{transform:translateX(-5px)}80%{transform:translateX(5px)}}',
-    '.gate-btn{width:100%;padding:13px 28px;background:#fff;color:#0A0A0A;border:none;border-radius:100px;font-size:15px;font-weight:600;font-family:inherit;cursor:pointer;transition:background 0.2s;}',
-    '.gate-btn:hover{background:#C2FF4F;}',
-    '.gate-error{font-size:13px;color:#ff6b6b;margin:0;opacity:0;transition:opacity 0.25s;}'
+    '.gate-btn{width:100%;padding:14px 28px;background:var(--g-btn);color:var(--g-btn-text);border:none;border-radius:100px;font-size:15px;font-weight:600;font-family:inherit;cursor:pointer;transition:background 0.2s,color 0.2s;}',
+    '.gate-btn:hover{background:var(--g-accent);color:#fff;}',
+    '.gate-error{font-size:13px;color:#ff6b6b;margin:14px 0 0;opacity:0;transition:opacity 0.25s;}',
+    '#gate-overlay.is-light .gate-error{color:#D23B3B;}'
   ].join('');
   document.head.appendChild(style);
 
@@ -29,10 +46,12 @@
 
   var overlay = document.createElement('div');
   overlay.id = 'gate-overlay';
+  if (LIGHT) overlay.className = 'is-light';
   overlay.innerHTML =
     '<div class="gate-box">' +
-      '<p class="gate-logo">BM</p>' +
-      '<p class="gate-label">Enter password to view portfolio</p>' +
+      '<div class="gate-photo"><span><img src="' + ROOT + 'images/' + (LIGHT ? 'bruno-light.png' : 'bruno.png') + '" alt="Bruno Mattera"></span></div>' +
+      '<h1 class="gate-name">Bruno Mattera</h1>' +
+      '<p class="gate-label">Enter the password to view my portfolio</p>' +
       '<form class="gate-form" id="gateForm">' +
         '<div class="gate-input-wrap">' +
           '<input type="password" id="gateInput" class="gate-input" placeholder="Password" autocomplete="current-password">' +
