@@ -1,4 +1,8 @@
 (function () {
+  // Set to false to publish the portfolio without a password screen
+  var GATE_ENABLED = true;
+  if (!GATE_ENABLED) return;
+
   var PASSWORD   = 'PortfolioDesignBM2026';
   var SESSION_KEY = 'portfolio-auth';
 

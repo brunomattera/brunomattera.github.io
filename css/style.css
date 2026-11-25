@@ -2680,3 +2680,11 @@ body.loaded .hero-photo { opacity: 1; transform: none; transition-delay: 0s; }
   .testimonial-name { font-size: 20px; margin-bottom: 4px; }
   .testimonial-company { margin-top: 6px; }
 }
+
+/* Nav CTA in light mode: brand violet instead of near-black */
+[data-theme="light"] .nav-cta {
+  background: var(--accent);
+  color: #FFFFFF;
+  box-shadow: 0 8px 22px -10px rgba(92, 81, 167, 0.55);
+}
+[data-theme="light"] .nav-cta:hover { background: #4C4390; color: #FFFFFF; }
